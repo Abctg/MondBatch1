@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mondrian GACW — Holdings Review, Batches 1–4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#F5F7F8; --surface:#FFFFFF; --ink:#101820; --mute:#5C6875;
+  --pass:#12655A; --passbg:#E4EFED; --fail:#9C3324; --failbg:#F6E7E4;
+  --inert:#AEB8C0; --inertbg:#EEF1F3; --rule:#DCE2E6; --petrol:#0E3A52;
+  --add:#12655A; --watch:#8A6212; --hold:#3D4B59; --trim:#A85B1C; --exit:#9C3324;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);
+ font-family:'IBM Plex Serif',Georgia,serif;font-size:15px;line-height:1.55;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px 80px}
+h1,h2,h3,.cond{font-family:'IBM Plex Sans Condensed',system-ui,sans-serif;letter-spacing:-.01em}
+.mono,.cw,.gnum,.glab,.gver,.kpg,.kpn,.tn,.tw,.rkey,.mlab,.fbtn,.ctick,.cmetrics,.badge,.tbadge
+ {font-family:'IBM Plex Mono',ui-monospace,monospace}
+
+/* ---------- masthead ---------- */
+.mast{border-bottom:2px solid var(--petrol);padding:44px 0 26px;margin-bottom:30px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;
+ text-transform:uppercase;color:var(--petrol);margin:0 0 14px}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.04;font-weight:700;margin:0 0 12px;max-width:20ch}
+.sub{margin:0;color:var(--mute);max-width:60ch}
+
+/* ---------- hero: kill-point ---------- */
+.hero{background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+ padding:26px 26px 20px;margin-bottom:14px}
+.hero h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--petrol);
+ margin:0 0 4px;font-weight:600}
+.hero .hnote{margin:0 0 20px;color:var(--mute);font-size:14px;max-width:64ch}
+.kprow{display:grid;grid-template-columns:58px 1fr minmax(90px,3fr) 34px;align-items:center;
+ gap:14px;padding:7px 0;border-top:1px solid var(--rule)}
+.kprow:first-child{border-top:none}
+.kpg{font-size:11px;letter-spacing:.08em;color:var(--mute);text-transform:uppercase}
+.kpl{font-size:14px}
+.kpbar{display:block;height:9px;background:var(--inertbg);border-radius:1px;overflow:hidden}
+.kpbar i{display:block;height:100%;width:var(--w);background:var(--inert)}
+.kpmax .kpbar i{background:var(--fail)}
+.kpmax .kpl{font-weight:500}
+.kpn{text-align:right;font-size:15px;font-weight:600}
+.kpmax .kpn{color:var(--fail)}
+
+/* ---------- method strip ---------- */
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;
+ background:var(--rule);border:1px solid var(--rule);border-radius:3px;margin-bottom:14px}
+.mcell{background:var(--surface);padding:16px 18px}
+.mcell h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--petrol);margin:0 0 7px;font-weight:600}
+.mcell p{margin:0;font-size:13.5px;line-height:1.5;color:var(--mute)}
+
+/* ---------- tally ---------- */
+.tally{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;
+ background:var(--rule);border:1px solid var(--rule);border-radius:3px;margin-bottom:34px}
+.trow{background:var(--surface);padding:15px 18px;display:flex;flex-direction:column;gap:5px}
+.tn{font-size:26px;font-weight:600;line-height:1}
+.tw{font-size:11.5px;color:var(--mute)}
+
+/* ---------- badges ---------- */
+.badge,.tbadge{display:inline-block;font-size:10px;letter-spacing:.1em;font-weight:600;
+ padding:3px 8px;border-radius:2px;color:#fff;width:max-content}
+.bADD{background:var(--add)} .bWATCHLIST{background:var(--watch)}
+.bHOLD{background:var(--hold)} .bTRIM{background:var(--trim)} .bEXIT{background:var(--exit)}
+
+.splitrow{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);
+ border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.split{background:var(--surface);padding:16px 18px;display:flex;gap:14px;align-items:flex-start}
+.sn{font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;line-height:1}
+.sl{font-size:13px;line-height:1.4;color:var(--mute)}
+.sl em{display:block;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+ line-height:1.6;margin-top:6px;color:var(--ink);opacity:.75}
+.sok .sn{color:var(--pass)} .sbad .sn{color:var(--fail)}
+@media (max-width:720px){.splitrow{grid-template-columns:1fr}}
+
+/* ---------- filter ---------- */
+.filter{position:sticky;top:0;z-index:20;background:var(--ground);
+ padding:12px 0;border-bottom:1px solid var(--rule);margin-bottom:26px;
+ display:flex;flex-wrap:wrap;gap:7px;
+ box-shadow:0 10px 14px -12px rgba(16,24,32,.28)}
+.fbtn{font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--surface);
+ border:1px solid var(--rule);border-radius:2px;padding:7px 11px;cursor:pointer;color:var(--mute);
+ display:inline-flex;gap:7px;align-items:center;transition:.14s}
+.fbtn em{font-style:normal;color:var(--ink);font-weight:600}
+.fbtn:hover{border-color:var(--petrol);color:var(--ink)}
+.fbtn.on{background:var(--petrol);border-color:var(--petrol);color:#fff}
+.fbtn.on em{color:#fff}
+.fbtn:focus-visible{outline:2px solid var(--petrol);outline-offset:2px}
+
+/* ---------- cards ---------- */
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+ padding:22px 24px 20px;margin-bottom:14px}
+.card[hidden]{display:none}
+.chead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.cid h3{font-size:21px;font-weight:600;margin:0 0 3px;line-height:1.15}
+.ctick{margin:0;font-size:11px;color:var(--mute);letter-spacing:.03em}
+.cnum{display:flex;flex-direction:column;align-items:flex-end;gap:7px;flex-shrink:0}
+.cw{font-size:19px;font-weight:600}
+.cmetrics{margin:12px 0 16px;font-size:12px;color:var(--mute);padding-bottom:14px;
+ border-bottom:1px solid var(--rule)}
+
+/* ---------- the gate train (signature) ---------- */
+.train{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:18px}
+.gate{padding:10px 11px;border-radius:2px;display:flex;flex-direction:column;gap:3px;
+ border-left:3px solid;position:relative}
+.gate::after{content:"";position:absolute;right:-6px;top:50%;width:6px;height:1px;background:var(--rule)}
+.gate:last-child::after{display:none}
+.gnum{font-size:9.5px;letter-spacing:.1em;opacity:.7}
+.glab{font-size:10.5px;letter-spacing:.02em;color:var(--mute);line-height:1.25}
+.gver{font-size:11.5px;font-weight:600;letter-spacing:.05em;margin-top:2px}
+.g2s{display:block;font-style:normal;font-size:9.5px;font-weight:400;letter-spacing:.09em;
+ opacity:.72;margin-top:2px}
+.gp{background:var(--passbg);border-color:var(--pass)} .gp .gver,.gp .gnum{color:var(--pass)}
+.gf{background:var(--failbg);border-color:var(--fail)} .gf .gver,.gf .gnum{color:var(--fail)}
+
+/* ---------- reasons ---------- */
+.reasons{display:flex;flex-direction:column;gap:9px}
+.rrow{display:grid;grid-template-columns:26px 1fr;gap:11px;align-items:start}
+.rkey{font-size:10px;font-weight:600;padding-top:4px;letter-spacing:.04em}
+.rp .rkey{color:var(--pass)} .rf .rkey{color:var(--fail)}
+.rtext{margin:0;font-size:14px;line-height:1.5}
+.rf .rtext{color:var(--ink)}
+
+/* ---------- meta blocks ---------- */
+.meta{margin-top:14px;padding:12px 14px;border-radius:2px;border-left:2px solid}
+.meta p{margin:0;font-size:13.5px;line-height:1.5}
+.mlab{display:block;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+ margin-bottom:5px;font-weight:600}
+.test{background:#F1F5F7;border-color:var(--petrol)} .test .mlab{color:var(--petrol)}
+.note{background:#FBF4E8;border-color:var(--watch)} .note .mlab{color:var(--watch)}
+.so{background:#F7F8F9;border-color:var(--inert)} .so .mlab{color:var(--mute)}
+
+/* ---------- closing sections ---------- */
+.section{margin-top:44px;padding-top:26px;border-top:2px solid var(--petrol)}
+.section h2{font-size:22px;margin:0 0 16px;font-weight:600}
+.finding{background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+ padding:18px 20px;margin-bottom:12px}
+.finding h3{font-size:15px;margin:0 0 7px;font-weight:600}
+.finding p{margin:0 0 9px;font-size:14px;line-height:1.55}
+.finding p:last-child{margin-bottom:0}
+.foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);
+ font-size:11.5px;color:var(--mute);font-family:'IBM Plex Mono',monospace;line-height:1.7}
+
+@media (max-width:720px){
+  .filter{padding:9px 0;gap:5px}
+  .fbtn{padding:6px 9px;font-size:10.5px;gap:5px}
+  .card{scroll-margin-top:96px;padding:18px 16px 16px}
+  .train{grid-template-columns:repeat(2,1fr)}
+  .gate::after{display:none}
+  .kprow{grid-template-columns:52px 1fr 30px;gap:9px}
+  .kpbar{display:none}
+  .chead{flex-direction:column;gap:10px}
+  .cnum{flex-direction:row;align-items:center;gap:12px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Mondrian Global Equity Value Fund (MPGVX) &nbsp;·&nbsp; benchmark MSCI ACWI &nbsp;·&nbsp; Q2 2026 holdings</p>
+  <h1>Holdings review: the first 27 names, re-run</h1>
+  <p class="sub">Every position put through the four gates as binary PASS or FAIL, with price action struck from Gate 2 evidence and a fixed gate-to-action mapping. 48.7% of the fund by weight. Batches 1&ndash;4 of 6.</p>
+</header>
+
+<section class="hero">
+  <h2>First gate failed</h2>
+  <p class="hnote">All four gates are assessed for every name regardless of where a failure occurs. But grouping each name by the <em>first</em> gate it fails is the single most informative view of this portfolio.</p>
+  <div class="kprow">
+   <span class="kpg">Gate 1</span>
+   <span class="kpl">Franchise</span>
+   <span class="kpbar"><i style="--w:0.0%"></i></span>
+   <span class="kpn">0</span>
+ </div>
+<div class="kprow">
+   <span class="kpg">Gate 2</span>
+   <span class="kpl">Overhang / impairment</span>
+   <span class="kpbar"><i style="--w:41.7%"></i></span>
+   <span class="kpn">5</span>
+ </div>
+<div class="kprow kpmax">
+   <span class="kpg">Gate 3</span>
+   <span class="kpl">Owned tailwind</span>
+   <span class="kpbar"><i style="--w:100.0%"></i></span>
+   <span class="kpn">12</span>
+ </div>
+<div class="kprow">
+   <span class="kpg">Gate 4</span>
+   <span class="kpl">Valuation & cash quality</span>
+   <span class="kpbar"><i style="--w:16.7%"></i></span>
+   <span class="kpn">2</span>
+ </div>
+<div class="kprow">
+   <span class="kpg">Cleared</span>
+   <span class="kpl">All four cleared</span>
+   <span class="kpbar"><i style="--w:66.7%"></i></span>
+   <span class="kpn">8</span>
+ </div>
+</section>
+
+<div class="method">
+  <div class="mcell"><h4>Binary verdicts</h4><p>PASS or FAIL with a stated reason. No marginal, weak or split states &mdash; a clean fail is more useful than a hedge.</p></div>
+  <div class="mcell"><h4>Gate 2, price struck</h4><p>52-week highs and drawdowns are inadmissible in either direction. Gate 2 asks only whether a specific, dateable question remains open in the numbers.</p></div>
+  <div class="mcell"><h4>Gate 3, ownership not duration</h4><p>A mechanism with a defined horizon passes if it is owned. A contracted RAB or backlog is a stronger pass than an uncapped but borrowed macro effect.</p></div>
+  <div class="mcell"><h4>Gate 4, capacity not payout</h4><p>Distributable-cash capacity plus accounting quality. Compressed FCF from an owned build is the carve-out, not a defect &mdash; conditioned on Gate 3 passing.</p></div>
+</div>
+
+<div class="tally"><div class="trow">
+   <span class="tbadge bADD">ADD</span>
+   <span class="tn">4</span>
+   <span class="tw">5.0% of fund</span>
+ </div>
+<div class="trow">
+   <span class="tbadge bWATCHLIST">WATCHLIST</span>
+   <span class="tn">4</span>
+   <span class="tw">10.9% of fund</span>
+ </div>
+<div class="trow">
+   <span class="tbadge bHOLD">HOLD</span>
+   <span class="tn">3</span>
+   <span class="tw">6.7% of fund</span>
+ </div>
+<div class="trow">
+   <span class="tbadge bTRIM">TRIM</span>
+   <span class="tn">2</span>
+   <span class="tw">3.4% of fund</span>
+ </div>
+<div class="trow">
+   <span class="tbadge bEXIT">EXIT</span>
+   <span class="tn">14</span>
+   <span class="tw">22.7% of fund</span>
+ </div></div>
+
+<section class="hero" style="margin-bottom:34px">
+  <h2>Exits on mechanism alone</h2>
+  <p class="hnote">Of the 14 exits, 7 pass Gate 4 outright &mdash; the cash, the accounting and the price are all fine, and only the absence of an owned mechanism removes them. Those are the positions where a same-exposure replacement is the natural move rather than reducing the exposure. The other 7 fail on cash, normalisation or accounting quality as well.</p>
+  <div class="splitrow">
+    <div class="split sok"><span class="sn">7</span><span class="sl">Exit on mechanism only<em>United Overseas Bank · BNP Paribas · Hypera · Sundrug · Salesforce · Capgemini · CDW</em></span></div>
+    <div class="split sbad"><span class="sn">7</span><span class="sl">Exit on mechanism and economics<em>Lloyds Banking Group · Bank of America · Wells Fargo · Bank Rakyat Indonesia · MatsukiyoCocokara · Workday · Fiserv</em></span></div>
+  </div>
+</section>
+
+<nav class="filter" aria-label="Filter by action"><button class="fbtn on" data-f="ALL">All<em>27</em></button>
+<button class="fbtn" data-f="ADD">Add<em>4</em></button>
+<button class="fbtn" data-f="WATCHLIST">Watchlist<em>4</em></button>
+<button class="fbtn" data-f="HOLD">Hold<em>3</em></button>
+<button class="fbtn" data-f="TRIM">Trim<em>2</em></button>
+<button class="fbtn" data-f="EXIT">Exit<em>14</em></button></nav>
+
+<main id="cards">
+<article class="card" data-action="EXIT" data-batch="1">
+  <header class="chead">
+    <div class="cid">
+      <h3>Lloyds Banking Group</h3>
+      <p class="ctick">LSE:LLOY &nbsp;·&nbsp; Financials</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.9%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">3.4% yield · 10.5x fwd · 2.08x P/TB</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">~20% UK current-account share is the cheapest retail funding base in Britain — durable and regulatorily unrepeatable.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Motor finance is a bounded one-time cost against a continuing franchise, not impairment. FCA final rules 30 Mar 2026, £7.5bn industry redress; £1.95bn provisioned, challenge declined.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">The structural hedge is BORROWED — every UK bank with a deposit book reprices a maturity ladder against the same exogenous curve. Lloyds' is larger relative to its balance sheet, which is magnitude, not ownership.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">Distributable capacity is real — roughly 175–200bp of CET1 generated annually with dividend and buyback covered. Two problems. The headline 10.5x forward rests on 39% EPS growth that is provision normalisation, not underlying earnings, so the denominator is distorted. And 2.08x tangible book for ~13–15% RoTE capitalises peak returns as permanent, against a UK banking history of 0.6–1.5x. Full price on a flattered multiple.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Upper Tribunal suspended parts of the scheme 2 Jul 2026; provision adequacy visible once notification wave completes — Q4 2026, confirmed at FY results Feb 2027.</p></div><div class="meta note"><span class="mlab">Method note</span><p>Reason rewritten under the Gate 3 amendment. Previously failed on 'endpoint around 2028' — duration is not the test.</p></div><div class="meta so"><span class="mlab">Second order</span><p>The hedge tailwind is consensus and decays into 2028. What remains is UK nominal GDP plus a mechanic every competitor shares.</p></div>
+</article>
+<article class="card" data-action="WATCHLIST" data-batch="1">
+  <header class="chead">
+    <div class="cid">
+      <h3>Charles Schwab</h3>
+      <p class="ctick">NYSE:SCHW &nbsp;·&nbsp; Financials</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.8%</span>
+      <span class="badge bWATCHLIST">WATCHLIST</span>
+    </div>
+  </header>
+  <p class="cmetrics">1.2% yield · 14.9x fwd · 3.74x P/B</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">RIA custody re-papering costs, roughly half the channel post-Ameritrade, sweep cash as near-zero-cost funding.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Roughly 40–45% of earnings is net interest on sweep cash, yet the market prices Schwab as an asset gatherer rather than partly a bank.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Wealth transfer plus the commission-to-fee shift moves assets to RIAs; RIAs must custody somewhere; the channel is a two-firm oligopoly. Each incremental dollar earns advisory fees, sweep spread and order flow at high incremental margin on a fixed-cost platform.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">No accounting flags. Spread income sits on client cash that can move, so quality is below pure fee income, but it is not manufactured. 14.9x forward is sane for the franchise.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Sweep balances and NIM through the next two rate cuts — monthly activity reports for balances, quarterly results for NIM.</p></div><div class="meta note"><span class="mlab">Method note</span><p>CORRECTED. Previously graded RESOLVED because the stock sat at a 52-week high, then the same entry described an unresolved mispricing. Price struck; the question is live.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Cuts compress Schwab twice — lower spread and less cash sorting. At 3.7x book the bank half is not in the price.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="1">
+  <header class="chead">
+    <div class="cid">
+      <h3>United Overseas Bank</h3>
+      <p class="ctick">SGX:U11 &nbsp;·&nbsp; Financials</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.0%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">3.6% yield · 12.2x fwd · 1.47x P/B</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Scarce Singapore licence plus regional branch density; Citi consumer books added scale.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">NIM compression as SGD rates track USD lower is cyclical pressure, a legitimate overhang category.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">'ASEAN growth' is sector adjacency. UOB competes for it against DBS and OCBC and trails DBS by ~400bp of ROE. The Citi deal bought share once; it is not a recurring mechanism.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">Capital return including specials is well covered by CET1 generation, Singapore provisioning is conservative with no accounting flags, and 1.47x book on ~13–14% ROE is a fair rather than demanding price. UOB exits on mechanism, not on cash or valuation — which makes a better-mechanism replacement in Asian financials the natural move rather than reducing the exposure.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>NIM trajectory and whether the capital return programme survives the trough — quarterly.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Asset-sensitive with high CASA entering a cutting cycle. The capital return defends ROE as NIM compresses, which is a symptom.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="1">
+  <header class="chead">
+    <div class="cid">
+      <h3>Bank of America</h3>
+      <p class="ctick">NYSE:BAC &nbsp;·&nbsp; Financials</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.1%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">2.0% yield · 12.7x fwd · 2.14x P/TB</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">RESOLVED</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">~$2trn deposits, ~11% US retail share, lowest deposit beta in the peer group, plus a regulatory barrier nobody can rebuild.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The 2020–21 low-coupon securities drag was real and non-impairment, rolling into 4–5% reinvestment. It has substantially played out and the runway to ~2027 is fully modelled — no live variant perception remains.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">Bond roll-off is BORROWED — shared by every bank that bought duration in 2020–21, reinvesting at a rate the Fed sets. Underlying growth is US nominal GDP plus card and markets share.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">Capacity is unquestionable: $20bn+ returned annually, CCAR-tested, and the AOCI marks are disclosed and pull to par rather than manufactured. The failure is price. 2.14x tangible book is the highest in the financials sleeve, paid for a bank whose primary earnings driver is a rate path it does not control and whose consumer book was de-risked to prime, leaving less upside than peers if credit normalises benignly.</p></div></div>
+  <div class="meta note"><span class="mlab">Method note</span><p>Reason rewritten under the Gate 3 amendment. Previously failed on 'defined endpoint'.</p></div><div class="meta so"><span class="mlab">Second order</span><p>BAC de-risked its consumer book to prime, so it has LESS upside than peers if credit normalises benignly.</p></div>
+</article>
+<article class="card" data-action="ADD" data-batch="1">
+  <header class="chead">
+    <div class="cid">
+      <h3>HDFC Bank</h3>
+      <p class="ctick">NSEI:HDFCBANK &nbsp;·&nbsp; Financials</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">0.7%</span>
+      <span class="badge bADD">ADD</span>
+    </div>
+  </header>
+  <p class="cmetrics">1.8% yield · 12.7x fwd · 1.87x P/B</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Cheapest deposit franchise among Indian private banks, widest branch network, scarce licence, underwriting culture in a market with thin bureau depth.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The 2023 merger dropped a wholesale-funded mortgage book on the balance sheet, pushing LDR to ~110%; management then grew loans below system for two years to rebuild deposits, depressing ROA. Self-inflicted, self-resolving, and visibly resolving.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Household credit/GDP near 40% vs 60–80% in EM peers; formalisation via GST, Aadhaar, UPI and account aggregator makes previously invisible borrowers underwritable; credit deepens at ~1.5x nominal GDP; HDFC takes disproportionate share because cheap funding wins prime assets at spreads competitors cannot match. The funding advantage COMPOUNDS — that is what makes it owned.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">Low payout is deliberate reinvestment at attractive returns on retained capital — the pay-now-harvest-later carve-out, not a Gate 4 failure. 1.87x book on 15–16% ROE is sane.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>LDR toward ~90% with loan growth back to system-plus at stable NIM — visible through FY2027 (March year-end).</p></div><div class="meta note"><span class="mlab">Method note</span><p>Data flag: the $10.73 52-week high against $7.73 spot looks unadjusted for the 2025 bonus issue. Treat the apparent drawdown as suspect.</p></div><div class="meta so"><span class="mlab">Second order</span><p>The real question is Indian bank NIMs as household savings migrate structurally from deposits to SIPs and equities — that erodes the very funding moat HDFC depends on.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="1">
+  <header class="chead">
+    <div class="cid">
+      <h3>Wells Fargo</h3>
+      <p class="ctick">NYSE:WFC &nbsp;·&nbsp; Financials</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.6%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">2.2% yield · 12.0x fwd · 1.93x P/TB</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Deposit franchise and branch network, structurally similar to BAC.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The asset cap was the overhang and it resolved — removed Jun 2025, final consent order closed early 2026. A new question replaced it: Q2 2026 ROTCE of 17.7% against 14.5% in Q1, on a target described as medium-term.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">Over 95% US revenue, keyed to nominal GDP and the rate path. Asset-cap removal is the lifting of a company-specific penalty, not an external trend flowing through a mechanism.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">Managing CET1 down to 10–10.5% releases genuine buyback capacity and there are no accounting flags. But this is a normalisation failure: 1.93x tangible book capitalises a 17.7% ROTCE printed in a single quarter against 14.5% the quarter before, on a target management describes as medium-term. Paying a peak multiple on a possibly-peak print, for the lowest forward EPS growth in the sleeve at 8.1%.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Whether 17.7% ROTCE is run-rate or a favourable-item quarter — H2 2026 and Q1 2027 results.</p></div><div class="meta note"><span class="mlab">Method note</span><p>CORRECTED. I read the stock's 9% distance from its high as evidence the market had already worked this out, having read other names' proximity to highs as the same conclusion. That was the unfalsifiable move; struck.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Self-help is exhausted. Everything from here requires macro.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="1">
+  <header class="chead">
+    <div class="cid">
+      <h3>BNP Paribas</h3>
+      <p class="ctick">ENXTPA:BNP &nbsp;·&nbsp; Financials</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.8%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">4.6% yield · 9.1x fwd · 0.95x P/B</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">FAIL<em class="g2s">NO EDGE</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Equity derivatives and prime brokerage scale is a genuine structural position. French retail is constrained by the regulated Livret A rate and the taux d'usure and carries no pricing power.</p></div>
+<div class="rrow rf"><span class="rkey">G2</span><p class="rtext">The persistent sub-book valuation reflects group ROE ~11–12% structurally diluted by low-return French retail. The one concrete risk — French sovereign spread transmitting through both the OAT book and the funding curve — has no calendar and therefore no dateable test.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">European nominal GDP is the driver. Defence and infrastructure fiscal expansion is contested by every European bank and much of it will be bond-financed into the DCM fee pool rather than onto BNP's balance sheet.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">The clearest case in the fund of a name that exits on mechanism while passing on cash and price. A ~60% payout with buybacks is comfortably covered at 11–12% ROE, and 1.04x tangible book with a 4.6% yield at 9.1x forward is genuinely cheap on assets. My earlier 'coupon not a compounding stream' framing was a sizing observation and should never have been read as a Gate 4 failure.</p></div></div>
+  <div class="meta so"><span class="mlab">Second order</span><p>Total return is roughly the 4.6% yield plus ~2% growth. A coupon, not a compounding stream.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="1">
+  <header class="chead">
+    <div class="cid">
+      <h3>Bank Rakyat Indonesia</h3>
+      <p class="ctick">IDX:BBRI &nbsp;·&nbsp; Financials</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.0%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">11.5% yield · 7.7x fwd · 1.34x P/B</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">~9,000 outlets plus the BRILink agent network reaching borrowers nobody else serves economically, on 50+ years of repayment data. Consolidated NIM of 7.9% against 2–3% for a Western bank is the proof.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The vintage micro book runs off; LAR improved to 9.6% from 10.7% and Q1 net profit rose 13.8%.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">Indonesian financial inclusion is a real secular change, but BRI's response is corporate lending +22.5% and Pegadaian gold lending +61.6% while Kupedes contracts 17.1%. The trend reaches BRI's economics through segments where BRI has NO moat. The chain snaps at the company step.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">Payout has run above 80% including specials against credit cost guidance of 2.9–3.2%, while the core Kupedes franchise contracts 17%. CAR of 19.6% makes it affordable near-term, but the framework's test is whether this is distributable FCF or capital being liquidated — and a bank distributing 11.5% while its highest-margin segment shrinks is paying out of the asset base. Disclosure flag: Loan-at-Risk of 9.6% against reported NPLs of 3.1% is a wide gap, suggesting recognition lags on restructured exposures.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Kupedes returning to growth with stable NPLs for two consecutive quarters.</p></div><div class="meta note"><span class="mlab">Method note</span><p>Confirms the correction agreed after your critique — a broken Gate 3 is fatal, not a trim.</p></div><div class="meta so"><span class="mlab">Second order</span><p>If normalised ROE is 15% rather than 20%, 1.34x book is fair, not cheap. The 11.5% yield is the market pricing disbelief in the payout.</p></div>
+</article>
+<article class="card" data-action="ADD" data-batch="1">
+  <header class="chead">
+    <div class="cid">
+      <h3>AIA Group</h3>
+      <p class="ctick">SEHK:1299 &nbsp;·&nbsp; Financials</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.4%</span>
+      <span class="badge bADD">ADD</span>
+    </div>
+  </header>
+  <p class="cmetrics">2.5% yield · 16.9x P/E · 2.42x P/B</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">~30% of agents are MDRT members, first globally. Pricing power proven by 10% VONB growth at a 72% margin in Hong Kong while competitors chased low-margin single-premium product.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">On company disclosure: H1 2026 VONB of $3.212bn, +10% CER and a record; Hong Kong VONB +10% to $1.168bn with contribution from both domestic and Mainland visitor business; Mainland China +20% to $937m. The MCV segment kept contributing through the period the rules tightened.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Asian household wealth accumulation plus state health and pension systems that cannot fund ageing forces self-insurance into long-duration protection. AIA captures outsized share through the only wholly foreign-owned mainland life licence, expanding province by province, with each recruited agent compounding because brand and training lift productivity above market. VONB converts to CSM; CSM releases into operating profit for decades.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">H1 2026 OPAT +15%, operating EPS +13% against a 9–11% target, interim dividend +10%, $1.7bn buyback with 56.7m shares repurchased, core EV +5% YTD after distributions implying an 18% annualised underlying operating return — internally consistent with genuine CSM release rather than assumption changes.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Hong Kong VONB and the MCV split at Q3 (Oct 2026) and FY (Mar 2027).</p></div><div class="meta note"><span class="mlab">Method note</span><p>RE-EVIDENCED. Prior support was a DBS channel check used as decisive with no conflict flag; DBS carried a BUY and was framing the pullback as a buying opportunity. Struck and replaced with company disclosure.</p></div><div class="meta so"><span class="mlab">Second order</span><p>The market prices AIA on quarterly VONB momentum, missing the CSM stock. Even at zero VONB growth, operating profit compounds mid-to-high single digits off the existing book.</p></div>
+</article>
+<article class="card" data-action="WATCHLIST" data-batch="2">
+  <header class="chead">
+    <div class="cid">
+      <h3>Alphabet</h3>
+      <p class="ctick">NASDAQGS:GOOGL &nbsp;·&nbsp; Semis & Platforms</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">3.1%</span>
+      <span class="badge bWATCHLIST">WATCHLIST</span>
+    </div>
+  </header>
+  <p class="cmetrics">27.3x NTM · 17.6x FY+1 · 16.6x EV/EBITDA</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Search distribution, defaults, YouTube, and TPU vertical integration — the only hyperscaler not paying Nvidia's margin on the bulk of its inference.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Two questions, one already answered. 'AI kills Search' is being falsified: Q2 revenue +24%, Cloud +82% to $24.8bn with operating profit tripling. The capex-return question is not answered.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Owned via vertical integration — model, silicon and datacentre in one stack at a lower cost per token than renting Nvidia. The $514bn backlog is contracted, which under the amendment is a stronger pass than an uncapped macro effect.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">Gate 3 passes, so compressed FCF from the build is the carve-out, not a defect. The $98bn unrealised gain contaminating trailing EPS is disclosed and reversible, not manufactured.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>The 2027 capex number at Q4 results (~Feb 2027), and whether Cloud EBITA margin holds as depreciation ramps.</p></div><div class="meta note"><span class="mlab">Method note</span><p>RESTATED: the 2026 capex cohort adds ~$25bn annual depreciation, ~$1.65/share after tax. If consensus FY+1 of ~$20.59 omits it, the real multiple is ~19.2x rather than 17.6x — a ~10% understatement, not a fail.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Trailing P/E of 18.2x in the CapIQ export is fictional — inflated by the unrealised equity gain. Any screen ranking this fund on trailing earnings mis-ranks Alphabet badly.</p></div>
+</article>
+<article class="card" data-action="WATCHLIST" data-batch="2">
+  <header class="chead">
+    <div class="cid">
+      <h3>Microsoft</h3>
+      <p class="ctick">NASDAQGS:MSFT &nbsp;·&nbsp; Semis & Platforms</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">3.1%</span>
+      <span class="badge bWATCHLIST">WATCHLIST</span>
+    </div>
+  </header>
+  <p class="cmetrics">24.8x NTM · 15.3x EV/EBITDA · 0.75% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Identity, data gravity and compliance perimeter — the deepest enterprise switching costs in the fund.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Both bear cases falsified in reported numbers: Azure +43% CC and a first $100bn year, and the entire $51bn sequential bookings increase came from customers other than the large AI labs, with ex-OpenAI backlog still +25%.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">$678bn contracted RPO, +84%. Enterprises adopt AI inside the perimeter they already run; Azure captures the workload with Copilot seats layered on. Exactly the contracted-backlog case the amendment says passes strongly.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">The useful-life change is defensible — shells not silicon, with servers on six years and management stating minimal FY27 operating-income benefit. Flag: reported capex now understates the commitment, because the change routes more of the lease stack into operating leases that never touch the capex line.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>The FY27 10-K lease note showing the operating-versus-finance split on the $329.1bn of uncommenced leases; and whether Azure holds 40%+ as capacity lands.</p></div><div class="meta note"><span class="mlab">Method note</span><p>CORRECTED. My original entry claimed Microsoft was assuming GPUs stay productive for 25 years. That conflated the building with the hardware inside it and was wrong. The real finding is the $329.1bn of uncommenced leases sitting in neither capex nor debt.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Actual FY2026 capex was $145.3bn with FY2027 projected ~$175bn. The capex line is becoming a less complete measure of the commitment.</p></div>
+</article>
+<article class="card" data-action="WATCHLIST" data-batch="2">
+  <header class="chead">
+    <div class="cid">
+      <h3>Meta Platforms</h3>
+      <p class="ctick">NASDAQGS:META &nbsp;·&nbsp; Semis & Platforms</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.9%</span>
+      <span class="badge bWATCHLIST">WATCHLIST</span>
+    </div>
+  </header>
+  <p class="cmetrics">18.4x NTM · 9.55x EV/EBITDA · 5.7x P/B</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">3bn+ user network effects. Price per ad +12% alongside impressions +14% is pricing power — both rise together only when ranking genuinely improves.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The 'business is deteriorating' reading is falsified: the −8% operating income was $2.4bn legal plus $1.2bn severance, and management stated that ex-charges it would have risen 9%, on ad revenue +27%.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Better ranking and generative creative raise price and conversion on inventory already owned, at near-100% incremental margin.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">Gate 3 passes, so FCF compression is the carve-out. The dividend exceeding quarterly FCF while issuing ~$25bn of debt is a disclosed capital-allocation choice, not manufactured margin. 18.4x forward on 28% revenue growth is sane.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Price per ad, quarterly; and the 2027 capex figure withheld at Q2.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Cheapest of the three capex names, and the only one whose return metric prints quarterly rather than annually — Meta has no cloud line to sell capacity into, so the return must show in ad pricing.</p></div>
+</article>
+<article class="card" data-action="HOLD" data-batch="2">
+  <header class="chead">
+    <div class="cid">
+      <h3>TSMC</h3>
+      <p class="ctick">TWSE:2330 &nbsp;·&nbsp; Semis & Platforms</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.5%</span>
+      <span class="badge bHOLD">HOLD</span>
+    </div>
+  </header>
+  <p class="cmetrics">19.3x NTM · 12.6x EV/EBITDA · 9.7x P/B</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">FAIL<em class="g2s">NO EDGE</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">67.7% gross and 60.3% operating margin on a capital-intensive manufacturer is monopoly by definition; N2 at or above $30k per wafer against ~$20k for N3.</p></div>
+<div class="rrow rf"><span class="rkey">G2</span><p class="rtext">No variant perception can be named. The monopoly is understood, the AI demand is understood, and the margin dilution path is explicitly guided: 2–3pp from the N2 ramp, 2–3pp from overseas fabs widening to 3–4pp. A guided, consensus headwind is not a mispricing.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">HPC at 66% of revenue, +20% sequentially. Every leading-edge accelerator must be fabricated here.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">~40% cash conversion is the capex absorbing it, which is the carve-out. Accounting clean. 19.3x for 40%+ growth is sane.</p></div></div>
+  <div class="meta note"><span class="mlab">Method note</span><p>CORRECTED. Previously graded Gate 2 on 'the stock has more than doubled off its low' — inadmissible. Rerun on the guided margin path instead, it still fails, but for a stateable reason.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Own the earnings, no variant edge. Cat 2 — do not size as a high-conviction idea. The overseas-fab margin dilution is permanent, not transitional: Arizona and Kumamoto will never match Hsinchu's cost base.</p></div>
+</article>
+<article class="card" data-action="HOLD" data-batch="2">
+  <header class="chead">
+    <div class="cid">
+      <h3>Samsung Electronics Pref</h3>
+      <p class="ctick">KOSE:A005935 &nbsp;·&nbsp; Semis & Platforms</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">3.4%</span>
+      <span class="badge bHOLD">HOLD</span>
+    </div>
+  </header>
+  <p class="cmetrics">Reported 7.6x on annualised Q2 · 15.6x–42.5x mid-cycle</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Three-player DRAM oligopoly on scale and process; HBM4 qualified and contracted.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Dateable questions remain open in the numbers on HBM mix and contract structure.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">CORRECTED. HBM is co-designed, qualified, contracted and scales on attach rate — that is owned volume. Conventional DRAM ASP is borrowed, but the framework requires separating the two, not collapsing them and stamping FAIL. My previous verdict contradicted my own Gate 1.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">This is where the peak problem belongs. Mid-cycle EPS of ₩7,800–21,200 against a reported annualised ₩43,400. Even holding peak ASPs and using a 35% DS margin — above historical mid-cycle — gives 15.6x. Consensus NTM sits ~1.4x the current run-rate. The price is not sane against normalised economics.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Whether HBM4 reaches 'well over 60% of HBM revenue' in H2 (Q3 results Oct 2026, Q4 Jan 2027), and whether the long-term data-centre supply agreements measurably dampen ASP cyclicality.</p></div><div class="meta note"><span class="mlab">Method note</span><p>SIZED: memory revenue +471% YoY on record bit sales. Industry DRAM bit demand grows ~20–25%/yr; even generous share gain plus HBM density caps volume at ~40–60pp of that 471. Volume is ~10–13% of the revenue increase; the rest is price and mix. A 70% DS operating margin against a prior supercycle peak in the low-50s is price, not content.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Verdict moved furthest of any name — from 'TRIM, hard' to hold-and-test — entirely because the Gate 1/Gate 3 contradiction got resolved the right way round. Data flag: the Samsung USD line in the export does not reconcile to a single FX path; mid-cycle work run in KRW.</p></div>
+</article>
+<article class="card" data-action="TRIM" data-batch="2">
+  <header class="chead">
+    <div class="cid">
+      <h3>Texas Instruments</h3>
+      <p class="ctick">NASDAQGS:TXN &nbsp;·&nbsp; Semis & Platforms</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.3%</span>
+      <span class="badge bTRIM">TRIM</span>
+    </div>
+  </header>
+  <p class="cmetrics">28.7x NTM · 32.8x FY+1 · 14.1x P/B · 2.6% FCF yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">FAIL<em class="g2s">NO EDGE</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Tens of thousands of SKUs, decade-long design-ins, internal 300mm, direct sales for much of the book.</p></div>
+<div class="rrow rf"><span class="rkey">G2</span><p class="rtext">The analog recovery is complete and consensus — revenue +23%, operating margin +715bp, Q3 guided above seasonality. No variant perception available.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Weakest pass in the batch. Industrial, automotive and data centre moved from ~43% of revenue in 2013 to ~75% in 2025; rising analog content per system as things electrify is owned, captured through design-in sockets and cost position.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">14.1x book, 28.7x forward, and FY+1 at 32.8x means consensus expects EPS to FALL the year after next. FCF of $6.5bn against a $253.6bn market cap is a 2.6% yield. TI's own FCF definition adds back CHIPS Act incentives, which held net capex near zero in H1 — the 'earned rather than manufactured' test failing directly.</p></div></div>
+  <div class="meta note"><span class="mlab">Method note</span><p>RETRACTED: TI does not belong in the correlated-supplier bucket. Data centre is doubling off a small base, so it cannot be materially correlated to the hyperscaler capex pool. The trim stands on valuation alone.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Gate 4 fail alone would be hold-and-don't-add. Gate 4 fail PLUS Gate 2 fail means no variant edge and a bad price — a Cat 2 position currently sized as a Cat 1 one.</p></div>
+</article>
+<article class="card" data-action="HOLD" data-batch="3">
+  <header class="chead">
+    <div class="cid">
+      <h3>Alibaba</h3>
+      <p class="ctick">NYSE:BABA &nbsp;·&nbsp; China / EM Consumer</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">0.8%</span>
+      <span class="badge bHOLD">HOLD</span>
+    </div>
+  </header>
+  <p class="cmetrics">19.6x NTM · 12.6x EV/EBITDA · 1.94x P/B</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">The moat has relocated. 88VIP captivity at ~64m members growing double digits, but China e-commerce revenue fell 8%. The durable position is Cloud: the only Chinese full-stack combination of frontier model, in-house silicon and datacentre.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The 'broken e-commerce company' reading is falsified in one segment and confirmed in the other. Cloud +45% with adjusted EBITA +133% to RMB5,628m and margin reaching 12% — margin expanding faster than revenue is the mechanism working. Retail is genuinely deteriorating.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Chinese enterprises must run AI domestically for regulatory and latency reasons, cannot access US hyperscalers or buy Nvidia at scale, and Alibaba owns model, chip and infrastructure in one stack.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">The carve-out is available but does not stretch this far. Alibaba funds TWO capital-intensive wars from one declining cash engine: quick commerce +45% is a subsidised delivery fight against Meituan and JD with no owned mechanism behind it, running concurrently with the AI build. The carve-out covers spending validated by Gate 3, not spending never validated at all. The $162m quarterly buyback against RMB474.5bn of liquid investments shows which claim on capital is losing.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Whether China e-commerce revenue stabilises while Cloud holds 40%+, and whether Taobao Instant Commerce unit economics reach breakeven — next print Nov 2026.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Something has to give between the two wars, and the collapsed buyback says it already has.</p></div>
+</article>
+<article class="card" data-action="ADD" data-batch="3">
+  <header class="chead">
+    <div class="cid">
+      <h3>Tencent</h3>
+      <p class="ctick">SEHK:700 &nbsp;·&nbsp; China / EM Consumer</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">0.8%</span>
+      <span class="badge bADD">ADD</span>
+    </div>
+  </header>
+  <p class="cmetrics">17.1x LTM · 10.5x EV/EBITDA · 3.47x P/B</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">WeChat is infrastructure rather than an application — payment, identity, social graph and mini-programs inside one perimeter. Pricing power demonstrated by raising Tencent Cloud prices and lifting ad load without attrition, with marketing services +22% to RMB43.6bn against a consumer market management calls choppy.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Two discrete questions. Gaming: the AAA ambition failed with Last Sentinel shelved, but the mobile live-service engine is intact — Roco Kingdom World at 13m average DAU in month one. Capex: 176% growth to RMB52.8bn with FCF at −RMB13.8bn.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">AI ad targeting raises price on inventory Tencent already owns, with Weixin Video Accounts engagement rising and closed-loop advertising lifting ad pricing further. The AI is a margin multiplier on an existing asset, not a new business requiring capital.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">Capex compression is the carve-out and Gate 3 passes. The distinguishing fact against Alibaba: Tencent repurchased ~37.4m shares for HKD16.9bn in the same quarter it stepped capex up 176%. Same macro, same arms race, still returning capital at scale. 10.5x forward EV/EBITDA is sane.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Management supplied the falsifier: Mitchell stated Tencent could recover depreciation almost immediately by renting compute to third parties but is allocating it to its own models. Model-driven revenue must eventually exceed the rental income foregone.</p></div><div class="meta note"><span class="mlab">Method note</span><p>Data flag: no NTM P/E for Tencent in the CapIQ export — a gap worth filling before any screen.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Alibaba vs Tencent is a replacement decision, not diversification. Same weight, same macro, opposite capital discipline: ~$2.2bn returned versus $162m.</p></div>
+</article>
+<article class="card" data-action="TRIM" data-batch="3">
+  <header class="chead">
+    <div class="cid">
+      <h3>Midea Group</h3>
+      <p class="ctick">SZSE:000333 &nbsp;·&nbsp; China / EM Consumer</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.1%</span>
+      <span class="badge bTRIM">TRIM</span>
+    </div>
+  </header>
+  <p class="cmetrics">13.7x NTM · 10.6x EV/EBITDA · 5.03% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">FAIL<em class="g2s">NO EDGE</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Scale manufacturing with vertical integration into compressors, supplying components to its own competitors; 65 production centres, non-China revenue 43% of the total growing 16%.</p></div>
+<div class="rrow rf"><span class="rkey">G2</span><p class="rtext">Q1 2026 revenue rose 2.55% and reported net profit 2.03%, while net profit EXCLUDING non-recurring items fell 14.02%. Core profitability is going backwards while the headline holds. That is disclosed and unfavourable — a deterioration in plain sight, not a mispricing to own.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Narrowly. The B2B mix shift is owned and evidenced: OBM revenue +20% to 45% of overseas sales, new energy and industrial tech +21%, building tech +25%. Own-brand replacing low-margin ODM is company-specific, not industry growth.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">FY2025 delivered revenue +12% and net profit +14%, assisted by the government trade-in subsidy; Q1 2026 core profit is already −14%. The 5.03% yield rests on the peak of a policy cycle, not a normalised base. A yield is only as good as the denominator's durability.</p></div></div>
+  <div class="meta note"><span class="mlab">Method note</span><p>CORRECTED. Previously failed Gate 2 on 'there is no overhang; the stock is near its 52-week high' — inadmissible. Rerun on disclosure alone it fails harder and for a better reason.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Cleanest illustration of the amendment working: right answer previously reached by an inadmissible route.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="3">
+  <header class="chead">
+    <div class="cid">
+      <h3>Hypera</h3>
+      <p class="ctick">BOVESPA:HYPE3 &nbsp;·&nbsp; China / EM Consumer</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">0.8%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">7.4x NTM · 7.0x EV/EBITDA · 1.07x P/B vs 7.54x P/TB</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Branded OTC where Brazilian consumers buy by name, plus distribution reaching 100% of the country's points of sale — which is why Sun Pharma selected Hypera rather than building its own channel.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The working-capital reset begun Q3 2024 deliberately cut sell-in to normalise channel inventory, destroying reported revenue and forcing a R$1.5bn raise at a 17% discount. Demonstrably resolving: Q2 revenue +8.5%, gross margin 61.8% (+1.7pp), EBITDA margin 32.3%, net income +15%, working-capital investment down to 28% of annualised revenue.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">ADD WITHDRAWN. I asserted this mechanism rather than demonstrating it. The chain requires a step I cannot evidence: why Hypera holds price in a branded-follower launch every Brazilian player will contest on the same patent cliff. Distribution explains why Hypera can PARTICIPATE, not why value accrues to it rather than dissipating into price competition. The manufacturing scale doing the work belongs to Sun Pharma, so part of the mechanism is borrowed.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">Cash generation is genuinely improving — working-capital investment down to 28% of annualised revenue with management calling the gains structural, net debt at R$6.3bn heading toward the 1.5x EBITDA target — and 7.4x forward is a cheap price. The PPA bridge you asked for: 1.07x book against 7.54x tangible book means roughly 86% of equity is acquired brand intangibles. Under IFRS these are indefinite-life and NOT amortised, so there is no amortisation distortion flattering margin. But there is also no book cushion, and the carrying value rests on precisely the pricing power Gate 3 could not evidence.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Whether working capital holds at 28% through the Semavy launch — Q3 2026, first print with the product in market.</p></div><div class="meta note"><span class="mlab">Method note</span><p>The fezolinetant launch in early 2027, patented to 2034 with explicitly less price competition, is a DIFFERENT and potentially owned mechanism — but it is not yet revenue and cannot rescue a gate today.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Went from highest-conviction small-cap add to exit with nothing about the company changing. Gates 1, 2 and 4 all being attractive is precisely the configuration that makes an unowned mechanism dangerous — everything else reads like a buy.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="3">
+  <header class="chead">
+    <div class="cid">
+      <h3>MatsukiyoCocokara</h3>
+      <p class="ctick">TSE:3088 &nbsp;·&nbsp; Japan Retail</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.9%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">15.8x NTM · 7.44x EV/EBITDA · 2.32% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Dominant urban footprint across Ginza, Shinjuku, Shibuya, Shinsaibashi, Namba and Dotonbori, plus 140m+ loyalty members feeding private label. A location and data moat, not pricing power on national brands.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Genuinely open: whether pre-pandemic Chinese bulk-buying has structurally migrated to cross-border e-commerce or is cyclically depressed. Evidence cuts both ways — flagship tax-free transaction values exceed pre-pandemic levels while domestic shoppers trade down under inflation.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">No owned mechanism. Ageing supports dispensing volumes, but dispensing margin is set by a government reimbursement schedule that gets cut — regulation capping upside rather than flooring it. Inbound tourism is an FX-driven flow captured because of where the leases sit, and any competitor can bid for the same corner.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">Net profit of ¥54.7bn on ¥1.06trn of sales is a ~5% margin, and 15.8x forward at 1.77x book is a demanding price for a retailer with no pricing power on national brands. The 7.44x EV/EBITDA looks cheaper than the business is: drugstore EBITDA flatters through lease treatment, and the store estate carries continuous refurbishment capex that EBITDA excludes.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Tax-free sales as a share of group revenue against inbound visitor numbers — if visitors rise and tax-free share doesn't, the migration is structural.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Mondrian's largest China-consumer exposure in this cluster was not Alibaba or Tencent at 0.8% each but Japanese drugstores at 3.6% combined — all of the demand risk, none of the franchise economics.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="3">
+  <header class="chead">
+    <div class="cid">
+      <h3>Sundrug</h3>
+      <p class="ctick">TSE:9989 &nbsp;·&nbsp; Japan Retail</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.7%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">12.6x NTM · 5.59x EV/EBITDA · 3.63% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Stronger than its peer's. Among the most efficient operators in Japanese drugstores, with high-dominant clustering and cost control producing above-average operating margins, undercutting Matsukiyo by 5–15% on identical national brands. In retail, cost advantage is the only durable moat.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Same structural question as Matsukiyo, with a partial hedge: discount formats mean domestic consumers trading down under inflation land inside Sundrug rather than leaving it.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">Efficient operation is not a secular mechanism. Ageing plus inflation-driven trade-down is industry-level demand, which the framework rejects regardless of who executes best against it.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">A ~6% net margin is best-in-class for the format, the 3.63% yield is covered, the balance sheet is undemanding, and 12.6x forward at 1.49x book with 5.59x EV/EBITDA is a cheap price. Like UOB and BNP, this exits on mechanism alone — the cash and the valuation are both fine.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>As Matsukiyo — tax-free share against visitor numbers.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Both drugstores fail on the same ground, which moots the consolidation argument I made first time round. The duplication doesn't need resolving when the gate fails for both.</p></div>
+</article>
+<article class="card" data-action="ADD" data-batch="4">
+  <header class="chead">
+    <div class="cid">
+      <h3>LSEG</h3>
+      <p class="ctick">LSE:LSEG &nbsp;·&nbsp; Software & IT Services</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.1%</span>
+      <span class="badge bADD">ADD</span>
+    </div>
+  </header>
+  <p class="cmetrics">16.85x NTM · 10.39x EV/EBITDA · 1.83% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">RESOLVED</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Three structurally distinct moats. LCH/SwapClear is a clearing utility where netting-set efficiency makes migration prohibitive; FTSE Russell is an index franchise where the benchmark IS the standard; Refinitiv adds proprietary content with workflow lock-in. Revenue retention 92.8% and NPVI 25.0% are pricing power, not just retention.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Complete rather than partial falsification. The Feb 2026 thesis was that AI agents disintermediate data terminals. H1 delivered organic income +8.4%, accelerating from 6.3% in H2 2025, subscription growth to 6.3% from 5.9%, adjusted EBITDA +14.1% on 320bp of margin, adjusted EPS +17.2%, guidance raised rather than defended.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Strongest in the fund. Agents need machine-readable, licensed, provenance-verified data they cannot scrape for regulated decisions. MCP connector customers went from 9 in late Dec 2025 to 202 by 13 Jul 2026, tool calls nearly quintupled May to June, and agents consume roughly TEN TIMES the data a human user does. Usage-based pricing means AI multiplies the meter instead of cutting the seat. Multi-year LDA agreements give defined horizon without making it borrowed.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">£2.1bn of buybacks completed in H1 with £1.35bn more planned, equity FCF £1.2bn in the half against ≥£2.7bn guided, capital intensity ~9.5% of income, medium-term guidance of double-digit compound growth in equity FCF per share. The 31.2x trailing multiple is Refinitiv purchase-price amortisation depressing reported earnings — the opposite of manufactured margin.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Monetisation is deliberately deferred: management prioritising adoption in 2026 with revenue impact meaningful from 2027. Watch usage-based MCP/API revenue disclosure at FY 2026 results.</p></div><div class="meta note"><span class="mlab">Method note</span><p>A RESOLVED Gate 2 normally means no variant edge left — that is what sent BAC and TSMC to Cat 2. LSEG differs: the disproven claim was disproven on CURRENT revenue, while the mechanism disproving it remains almost entirely unmonetised. The overhang closed; the option has not opened.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Only name in the review where a proven mechanism's monetisation has been deliberately deferred by management.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="4">
+  <header class="chead">
+    <div class="cid">
+      <h3>Salesforce</h3>
+      <p class="ctick">NYSE:CRM &nbsp;·&nbsp; Software & IT Services</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.7%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">13.85x NTM · 10.92x EV/EBITDA · 4.62x P/B</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Switching costs in customer data, workflow, integrations and the admin skill base are genuine. But the moat protects the system of record while per-seat pricing charges for the interface, and that gap is the entire question.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Q4 FY2026 beat on both lines: revenue +12% to $11.2bn, adjusted EPS $3.81 ahead by 77 cents and +37%. Results beat and the stock fell — a sentiment gap rather than a numbers gap.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">Hardened from 'MARGINAL', which the binary rule does not permit. Agentforce is the right response, consumption-priced, at an annual run rate above $1bn — about 2% of revenue, with reported mix still dominated by seat licences and conversion described as gradual. The framework requires a mechanism that REACHES the economics. At 2%, the mechanism exists as a product but does not yet reach them.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">FCF conversion is genuinely high on high-30s adjusted operating margins, with a dividend and substantial buyback capacity, and 13.85x forward at 10.9x EV/EBITDA is a low price. Flags rather than failures: non-GAAP margins exclude material stock-based compensation, and tangible book is nil on Slack, Mulesoft and Tableau goodwill. Gate 4 passing cleanly is what makes this the closest call in the review — only Gate 3 removes it.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Whether seat count declines. Salesforce does not disclose seats, so the proxy is subscription revenue growth against customer count commentary, quarterly.</p></div><div class="meta note"><span class="mlab">Method note</span><p>CLOSEST CALL IN THE REVIEW. Gate 4 is genuinely attractive at 13.85x forward on high-30s operating margins, and if Agentforce reaches double-digit revenue share the verdict flips. Flagged for your judgement: this is the only exit driven by a QUANTITATIVE THRESHOLD rather than a structural break.</p></div><div class="meta so"><span class="mlab">Second order</span><p>'The company can grow this into significance' is close to the penetration-curve argument the brief rejects by name — but it is a genuine boundary and the rule should be stated, not applied case by case.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="4">
+  <header class="chead">
+    <div class="cid">
+      <h3>Workday</h3>
+      <p class="ctick">NASDAQGS:WDAY &nbsp;·&nbsp; Software & IT Services</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.2%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">15.34x NTM (pre-SBC) · 53.1x LTM · 53.8x P/TB</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Payroll and the general ledger are the stickiest systems in the enterprise, with implementation costs at multiples of licence fees. Switching-cost moat on installed base, no pricing power on new business.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">FY2026 guidance raised slightly to ~13% revenue growth, though including Paradox and essentially unchanged organically. The CEO called seat-disruption fears completely overblown while conceding customer headcount growth has moderated — the open question stated by management itself.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">Growth comes from seat-based subscription expansion and the secular change reduces seats. Every available argument is defensive. Set against LSEG in the same batch the contrast is exact: an agent doing HR work does not consume more Workday, it means fewer humans need a licence.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">This is the assessment I previously buried in a footnote. The gap between 53.1x trailing and 15.34x forward is overwhelmingly stock-based compensation, which runs near 15% of revenue. Quarterly FCF of $588m is struck before charging roughly $350–375m of quarterly SBC as the real cost it is; adjusted, that is closer to $215–240m a quarter, or ~$900m annualised against a $42.1bn market cap — a ~2.1% adjusted FCF yield. The $299m buyback is largely offsetting dilution rather than returning capital, there is no dividend, and 53.8x tangible book leaves no asset support.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Subscription revenue growth against headcount commentary, quarterly.</p></div><div class="meta note"><span class="mlab">Method note</span><p>Noted but not reached: no dividend, 53.8x tangible book, and the 15.34x forward is struck before stock-based compensation, which the framework flags explicitly.</p></div><div class="meta so"><span class="mlab">Second order</span><p>The market treated Workday and LSEG as one trade — both fell in February on AI. They are opposites: LSEG sells consumption and agents multiply it; Workday sells access per human and agents divide it.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="4">
+  <header class="chead">
+    <div class="cid">
+      <h3>Capgemini</h3>
+      <p class="ctick">ENXTPA:CAP &nbsp;·&nbsp; Software & IT Services</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.4%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">8.24x NTM · 6.77x EV/EBITDA · 3.12% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Narrowly. Scale, 66% offshore leverage and client relationships. Attrition at 18.6% on 417,600 people means the asset walks out annually — a relationship and delivery moat, not pricing power.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">H1 revenue +11.3% constant currency, bookings €12,602m at 1.04 book-to-bill (1.07 in Q2), guidance raised to +8.5–9.0%. But ~5 points is inorganic: Q1 organic growth was 4.5 points against 6.5 from WNS and Cloud4C. The acceleration was bought.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">Capgemini benefits from the TRANSITION to agentic AI because clients need implementers, and gen-AI bookings above 11% of group total is real demand. But a migration boom ends when the migration ends, leaving a smaller pool of billable hours. The Intelligent Business Operations line built on WNS is BPO, the most automatable revenue pool in the industry — ~68,000 people acquired to sell process outsourcing precisely as processes become automatable.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">Organic FCF guided at €1.8–1.9bn against a ~€21bn market cap is roughly a 9% yield with the dividend covered, at 8.2x forward. That is a cheap price for real cash. Flags: organic FCF is guided BELOW 2025's €1.95bn despite revenue growing, because ~€700m of Fit-for-Growth restructuring cash leaves over two years with the majority in 2026; and tangible book is nil on WNS, Cloud4C and prior acquisition goodwill.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Organic growth ex-acquisition once WNS annualises into the base from Q4 2026.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Headcount down 5,800 YTD while revenue grew is AI productivity appearing in the accounts — flattering margin now, shrinking the revenue base later if the industry migrates from pricing input to pricing output.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="4">
+  <header class="chead">
+    <div class="cid">
+      <h3>CDW</h3>
+      <p class="ctick">NASDAQGS:CDW &nbsp;·&nbsp; Software & IT Services</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.7%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">12.53x NTM · 10.59x EV/EBITDA · 7.29x P/B</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Vendor breadth, technical pre-sales and account coverage mid-market IT departments cannot replicate. A scale moat on working capital and vendor terms; the 20.1% gross margin shows how limited the pricing power is.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Record quarter — net sales $6.6bn (+10%), gross profit $1.3bn (+6.3%), non-GAAP EPS $2.91 (+11.9%), guidance raised. Gross margin contracted 70bp, attributed to mix rather than discounting, with management stating no meaningful like-for-like pressure.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">The AI cycle reaches CDW's P&L in the wrong direction. Hardware grew 10% on double-digit server, storage and networking growth — precisely the low-margin large-enterprise mix that compressed gross margin — while services grew 1%. A reseller whose fastest-growing category dilutes gross profit is a pass-through, not an owner of the tailwind.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">Roughly $982m returned annually via dividends and buybacks is well covered, with the repurchase authorisation raised by a further $1bn, and 12.5x forward is a fair price for the cash. Normalisation flag: H1 free cash flow is suppressed by a ~$400m inventory build taken deliberately to front-run memory pricing, so reported conversion understates run-rate — management expects normalisation toward the 80–90% target in H2.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Whether services growth accelerates from the 1% recorded, as management claims AI projects move from procurement to implementation.</p></div><div class="meta note"><span class="mlab">Method note</span><p>Management's answer is a promise with no contracted backlog behind it — which is exactly what separates this from Microsoft's RPO.</p></div><div class="meta so"><span class="mlab">Second order</span><p>The $400m inventory build to front-run memory pricing is Samsung's earnings tailwind arriving as CDW's cost headwind. The fund owns both sides of the DRAM price through the supply chain.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="4">
+  <header class="chead">
+    <div class="cid">
+      <h3>Fiserv</h3>
+      <p class="ctick">NASDAQGS:FI &nbsp;·&nbsp; Software & IT Services</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">0.9%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">Export price $54.11 stale · guidance reset 4x in 12 months</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">FAIL<em class="g2s">IMPAIRMENT</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">The three-supplier oligopoly in community and regional bank core processing carries real switching costs. The Clover merchant moat claim has broken, but the franchise gate clears on the core banking asset.</p></div>
+<div class="rrow rf"><span class="rkey">G2</span><p class="rtext">IMPAIRMENT, and nothing here rests on the share price. Guidance has reset four times in twelve months: ~10% growth and $10.15–10.30 EPS → 3.5–4% organic and $8.50–8.60 → 1–3% and $8.00–8.30 → flat-to-−1% organic and $7.20–7.40. Two CEO changes, with Lyons departing under a month after an Investor Day held to sell the plan. Litigation alleges merchants were funnelled from Payeezy onto Clover, inflating reported revenue and volume until higher costs drove them off.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">Clover was the secular story; hardware and data cut Clover revenue ~9% in the quarter with Argentina a further 2%, while GPV still grew 9%. Volume and revenue have detached.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">Fails on all three limbs. Capacity: the buyback that WAS the EPS mechanism has stopped, at $300m in H1 2026 against $4.4bn in H1 2025, with no dividend. Balance sheet: ~$27.3bn of net debt against a ~$28.9bn market cap makes the equity a levered stub on a declining earnings base. Accounting quality: the reported organic growth history is contested in litigation alleging Payeezy merchants were funnelled onto Clover to inflate revenue and volume — so there is no denominator to price against.</p></div></div>
+  <div class="meta note"><span class="mlab">Method note</span><p>DATA FLAG: the Fiserv line in the CapIQ export is a pre-print snapshot. The 6.66x forward implies EPS near $8.13; the company has since guided $7.20–7.40. Any screen using that multiple applies a withdrawn estimate.</p></div><div class="meta so"><span class="mlab">Second order</span><p>The historical growth series from which any normalised earnings estimate would be built is itself contested in court. There is no reliable denominator. Noted but not reached: the buyback that was the EPS mechanism stopped at $300m in H1 2026 against $4.4bn in H1 2025, on ~$27.3bn of net debt and no dividend.</p></div>
+</article>
+</main>
+
+<section class="section">
+  <h2>What the re-run changed</h2>
+
+  <div class="finding">
+    <h3>Gate 3 is where this portfolio dies, and it is not close</h3>
+    <p>Twelve of the fourteen exits stop at Gate 3 &mdash; the owned secular tailwind. The other two stop earlier at Gate 2: Fiserv on impairment, BNP because no variant perception can be named. <strong>Not a single name in the 27 fails Gate 1.</strong> Mondrian is buying good businesses at defensible prices; what it is largely not buying is businesses with a mechanism that reaches their own economics.</p>
+    <p>The financials sleeve is the sharpest expression: six of nine exit, roughly 70% of the book, because deposit franchises earn a spread on a regulated balance sheet driven by a rate path nobody owns. Lloyds and Bank of America fail because the structural hedge and the bond roll are available to every bank on the same exogenous curve &mdash; borrowed, not because they terminate.</p>
+    <p>Assessing Gate 4 on every name regardless of where it failed earlier turns out to matter: seven of the fourteen exits pass Gate 4 outright. UOB, BNP, Sundrug, Capgemini, CDW, Salesforce and Hypera all have covered distributable cash, clean-enough accounting and a sane price. They are removed by the absence of a mechanism and nothing else.</p>
+  </div>
+
+  <div class="finding">
+    <h3>Four verdicts moved because the method was wrong, not the facts</h3>
+    <p><strong>Samsung</strong> went from a hard trim to hold-and-test. Gate 1 credited HBM4 as a qualified component and Gate 3 then failed it as pure commodity; both could not be true. HBM is co-designed, contracted and scales on attach rate, so Gate 3 passes and the peak-price problem relocates to Gate 4, where the mid-cycle arithmetic fails it cleanly.</p>
+    <p><strong>Schwab, TSMC and Midea</strong> all had Gate 2 decided on the share price. Rerun on disclosure alone, Schwab's sweep-cash question is live rather than closed, while TSMC and Midea still fail &mdash; for reasons that can now be stated and falsified.</p>
+    <p><strong>Hypera</strong> reversed from the highest-conviction small-cap add to an exit with nothing about the company changing. Gates 1, 2 and 4 are all attractive, which is precisely the configuration that makes an unowned mechanism dangerous.</p>
+  </div>
+
+  <div class="finding">
+    <h3>Roughly 18% of the fund sits in one exposure that appears on no sector map</h3>
+    <p>Alphabet, Microsoft, Meta, Alibaba and Tencent are all currently converting operating cash into AI infrastructure. Five have suspended or collapsed their buybacks. Under the corrected Gate 4 this is not automatically a defect &mdash; the carve-out covers spending a passing Gate 3 has validated &mdash; but it concentrates the fund's distributable-cash profile on one capital cycle resolving on one timetable.</p>
+    <p>Alibaba is the exception that proves the boundary: it fails Gate 4 not for building AI infrastructure but for funding a subsidised delivery war alongside it, which no gate has validated.</p>
+  </div>
+
+  <div class="finding">
+    <h3>The distinction the market blurred, and the fund with it</h3>
+    <p>Five of six software and IT services names sell something priced per human or per unit of hardware into a change that reduces humans and commoditises hardware. LSEG sells consumption into a change that multiplies consumption &mdash; agents draw roughly ten times the data a human user does. The February 2026 de-rating hit all six alike. Only one of them was mispriced.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Data integrity flags</h2>
+  <div class="finding">
+    <p><strong>Alphabet</strong> &mdash; the 18.2x trailing P/E in the CapIQ export is contaminated by $98bn of unrealised equity gains. Any screen ranking this fund on trailing earnings mis-ranks Alphabet materially.</p>
+    <p><strong>Fiserv</strong> &mdash; the export line is a pre-print snapshot. Its 6.66x forward implies EPS near $8.13 against guidance since cut to $7.20&ndash;7.40.</p>
+    <p><strong>Samsung</strong> &mdash; the USD price, 52-week range and reported KRW prices do not reconcile to a single FX path. Mid-cycle work run in KRW for that reason. The fund holds the preferred; the export line is the common.</p>
+    <p><strong>HDFC Bank</strong> &mdash; the 52-week high appears unadjusted for the 2025 bonus issue, making the apparent drawdown an artefact.</p>
+    <p><strong>Tencent</strong> &mdash; no forward P/E populated in the export.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Open items</h2>
+  <div class="finding">
+    <h3>Salesforce is the one boundary call I would not make alone</h3>
+    <p>It is the only exit in the review driven by a quantitative threshold rather than a structural break. Agentforce is owned, consumption-priced and growing, at roughly 2% of revenue. My reading is that Gate 3 requires a mechanism to reach the economics, not merely to exist &mdash; but if the framework should admit a demonstrated mechanism at immaterial scale, that rule needs stating rather than applying case by case.</p>
+  </div>
+  <div class="finding">
+    <h3>Fund identity resolved</h3>
+    <p>MPGVX is benchmarked 100% to MSCI ACWI, covering 23 developed and 26 emerging markets, so this is the Global All Countries World mandate in mutual-fund form. One caveat carried forward: at roughly $278m of assets this is the retail vehicle rather than the institutional composite. Relative weights are representative; absolute sizing should not be read as institutional book size.</p>
+  </div>
+</section>
+
+<p class="foot">
+Sources: company results releases, interim reports, earnings-call transcripts and SEC filings for all gate-critical figures.<br>
+Valuation metrics from CapitalIQ export, Q2 2026, with the exceptions flagged above.<br>
+Remaining 28 names &mdash; healthcare, staples &amp; retail, industrials &amp; transport, real assets &amp; utilities &mdash; to follow in a second report.
+</p>
+
+</div>
+<script>
+const btns=[...document.querySelectorAll('.fbtn')],cards=[...document.querySelectorAll('.card')];
+btns.forEach(b=>b.addEventListener('click',()=>{
+  btns.forEach(x=>x.classList.toggle('on',x===b));
+  const f=b.dataset.f;
+  cards.forEach(c=>{c.hidden=!(f==='ALL'||c.dataset.action===f);});
+  window.scrollTo({top:document.querySelector('.filter').offsetTop-8,behavior:'instant'});
+}));
+</script>
+</body></html>
