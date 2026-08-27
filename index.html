@@ -77,6 +77,24 @@ h1{font-size:clamp(30px,5vw,46px);line-height:1.04;font-weight:700;margin:0 0 12
 .sok .sn{color:var(--pass)} .sbad .sn{color:var(--fail)}
 @media (max-width:720px){.splitrow{grid-template-columns:1fr}}
 
+.gsrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;
+ background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.gs{background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.gsl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;
+ text-transform:uppercase;color:var(--mute)}
+.gsv{font-size:13px;color:var(--mute)}
+.gsv b{font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600}
+.gsv b.p{color:var(--pass)} .gsv b.f{color:var(--fail)}
+table.cltab{width:100%;border-collapse:collapse;font-size:13.5px}
+table.cltab th{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;
+ text-transform:uppercase;color:var(--mute);text-align:right;padding:0 0 8px;font-weight:600;
+ border-bottom:1px solid var(--rule)}
+table.cltab th:first-child{text-align:left}
+table.cltab td{padding:8px 0;text-align:right;border-bottom:1px solid var(--rule);
+ font-family:'IBM Plex Mono',monospace;font-size:13px}
+table.cltab td.cn{text-align:left;font-family:'IBM Plex Serif',serif;font-size:14px}
+table.cltab td.hot{color:var(--fail);font-weight:600}
+
 /* ---------- filter ---------- */
 .filter{position:sticky;top:0;z-index:20;background:var(--ground);
  padding:12px 0;border-bottom:1px solid var(--rule);margin-bottom:26px;
@@ -162,42 +180,42 @@ h1{font-size:clamp(30px,5vw,46px);line-height:1.04;font-weight:700;margin:0 0 12
 
 <header class="mast">
   <p class="eyebrow">Mondrian Global Equity Value Fund (MPGVX) &nbsp;·&nbsp; benchmark MSCI ACWI &nbsp;·&nbsp; Q2 2026 holdings</p>
-  <h1>Holdings review: the first 27 names, re-run</h1>
-  <p class="sub">Every position put through the four gates as binary PASS or FAIL, with price action struck from Gate 2 evidence and a fixed gate-to-action mapping. 48.7% of the fund by weight. Batches 1&ndash;4 of 6.</p>
+  <h1>Holdings review: all 55 names, re-run</h1>
+  <p class="sub">Every position put through the four gates as binary PASS or FAIL, with price action struck from Gate 2 evidence and a fixed gate-to-action mapping. 99.2% of the fund by weight, plus 0.9% cash. Complete.</p>
 </header>
 
 <section class="hero">
-  <h2>First gate failed</h2>
-  <p class="hnote">All four gates are assessed for every name regardless of where a failure occurs. But grouping each name by the <em>first</em> gate it fails is the single most informative view of this portfolio.</p>
+  <h2>First gate failed &mdash; all 55</h2>
+  <p class="hnote">All four gates are assessed for every name regardless of where a failure occurs. But grouping each name by the <em>first</em> gate it fails is the single most informative view of this portfolio. Gate 3 is where it dies, and it is not close.</p>
   <div class="kprow">
    <span class="kpg">Gate 1</span>
    <span class="kpl">Franchise</span>
-   <span class="kpbar"><i style="--w:0.0%"></i></span>
-   <span class="kpn">0</span>
+   <span class="kpbar"><i style="--w:4.3%"></i></span>
+   <span class="kpn">1</span>
  </div>
 <div class="kprow">
    <span class="kpg">Gate 2</span>
    <span class="kpl">Overhang / impairment</span>
-   <span class="kpbar"><i style="--w:41.7%"></i></span>
-   <span class="kpn">5</span>
+   <span class="kpbar"><i style="--w:39.1%"></i></span>
+   <span class="kpn">9</span>
  </div>
 <div class="kprow kpmax">
    <span class="kpg">Gate 3</span>
    <span class="kpl">Owned tailwind</span>
    <span class="kpbar"><i style="--w:100.0%"></i></span>
-   <span class="kpn">12</span>
+   <span class="kpn">23</span>
  </div>
 <div class="kprow">
    <span class="kpg">Gate 4</span>
    <span class="kpl">Valuation & cash quality</span>
-   <span class="kpbar"><i style="--w:16.7%"></i></span>
-   <span class="kpn">2</span>
+   <span class="kpbar"><i style="--w:21.7%"></i></span>
+   <span class="kpn">5</span>
  </div>
 <div class="kprow">
    <span class="kpg">Cleared</span>
    <span class="kpl">All four cleared</span>
-   <span class="kpbar"><i style="--w:66.7%"></i></span>
-   <span class="kpn">8</span>
+   <span class="kpbar"><i style="--w:73.9%"></i></span>
+   <span class="kpn">17</span>
  </div>
 </section>
 
@@ -210,45 +228,56 @@ h1{font-size:clamp(30px,5vw,46px);line-height:1.04;font-weight:700;margin:0 0 12
 
 <div class="tally"><div class="trow">
    <span class="tbadge bADD">ADD</span>
-   <span class="tn">4</span>
-   <span class="tw">5.0% of fund</span>
+   <span class="tn">7</span>
+   <span class="tw">10.6% of fund</span>
  </div>
 <div class="trow">
    <span class="tbadge bWATCHLIST">WATCHLIST</span>
-   <span class="tn">4</span>
-   <span class="tw">10.9% of fund</span>
+   <span class="tn">10</span>
+   <span class="tw">24.7% of fund</span>
  </div>
 <div class="trow">
    <span class="tbadge bHOLD">HOLD</span>
-   <span class="tn">3</span>
-   <span class="tw">6.7% of fund</span>
+   <span class="tn">6</span>
+   <span class="tw">13.8% of fund</span>
  </div>
 <div class="trow">
    <span class="tbadge bTRIM">TRIM</span>
-   <span class="tn">2</span>
-   <span class="tw">3.4% of fund</span>
+   <span class="tn">3</span>
+   <span class="tw">4.7% of fund</span>
  </div>
 <div class="trow">
    <span class="tbadge bEXIT">EXIT</span>
-   <span class="tn">14</span>
-   <span class="tw">22.7% of fund</span>
+   <span class="tn">29</span>
+   <span class="tw">45.4% of fund</span>
  </div></div>
 
-<section class="hero" style="margin-bottom:34px">
-  <h2>Exits on mechanism alone</h2>
-  <p class="hnote">Of the 14 exits, 7 pass Gate 4 outright &mdash; the cash, the accounting and the price are all fine, and only the absence of an owned mechanism removes them. Those are the positions where a same-exposure replacement is the natural move rather than reducing the exposure. The other 7 fail on cash, normalisation or accounting quality as well.</p>
-  <div class="splitrow">
-    <div class="split sok"><span class="sn">7</span><span class="sl">Exit on mechanism only<em>United Overseas Bank · BNP Paribas · Hypera · Sundrug · Salesforce · Capgemini · CDW</em></span></div>
-    <div class="split sbad"><span class="sn">7</span><span class="sl">Exit on mechanism and economics<em>Lloyds Banking Group · Bank of America · Wells Fargo · Bank Rakyat Indonesia · MatsukiyoCocokara · Workday · Fiserv</em></span></div>
+<section class="hero" style="margin-bottom:14px">
+  <h2>Gate scorecard across all 55</h2>
+  <p class="hnote">Every gate assessed for every name. 220 verdicts, 220 stated reasons.</p>
+  <div class="gsrow">
+    <div class="gs"><span class="gsl">Gate 1 &middot; Franchise</span><span class="gsv"><b class="p">54</b> pass &middot; <b class="f">1</b> fail</span></div>
+    <div class="gs"><span class="gsl">Gate 2 &middot; Overhang</span><span class="gsv"><b class="p">45</b> pass &middot; <b class="f">10</b> fail</span></div>
+    <div class="gs"><span class="gsl">Gate 3 &middot; Owned tailwind</span><span class="gsv"><b class="p">26</b> pass &middot; <b class="f">29</b> fail</span></div>
+    <div class="gs"><span class="gsl">Gate 4 &middot; Valuation / cash</span><span class="gsv"><b class="p">32</b> pass &middot; <b class="f">23</b> fail</span></div>
   </div>
 </section>
 
-<nav class="filter" aria-label="Filter by action"><button class="fbtn on" data-f="ALL">All<em>27</em></button>
-<button class="fbtn" data-f="ADD">Add<em>4</em></button>
-<button class="fbtn" data-f="WATCHLIST">Watchlist<em>4</em></button>
-<button class="fbtn" data-f="HOLD">Hold<em>3</em></button>
-<button class="fbtn" data-f="TRIM">Trim<em>2</em></button>
-<button class="fbtn" data-f="EXIT">Exit<em>14</em></button></nav>
+<section class="hero" style="margin-bottom:34px">
+  <h2>Exits on mechanism alone</h2>
+  <p class="hnote">Of the 29 exits, 14 pass Gate 4 outright &mdash; the cash, the accounting and the price are all fine, and only the absence of an owned mechanism removes them. Those are the positions where a same-exposure replacement is the natural move rather than reducing the exposure. The other 15 fail on cash, normalisation or accounting quality as well.</p>
+  <div class="splitrow">
+    <div class="split sok"><span class="sn">14</span><span class="sl">Exit on mechanism only<em>United Overseas Bank · BNP Paribas · Hypera · Sundrug · Salesforce · Capgemini · CDW · UnitedHealth Group · PepsiCo · Dollar Tree · Associated British Foods · Deutsche Post / DHL Group · Komatsu · NNN REIT</em></span></div>
+    <div class="split sbad"><span class="sn">15</span><span class="sl">Exit on mechanism and economics<em>Lloyds Banking Group · Bank of America · Wells Fargo · Bank Rakyat Indonesia · MatsukiyoCocokara · Workday · Fiserv · Philips · Zoetis · Sysco · Pernod Ricard · Nintendo · Aurizon Holdings · CNH Industrial · UPM-Kymmene</em></span></div>
+  </div>
+</section>
+
+<nav class="filter" aria-label="Filter by action"><button class="fbtn on" data-f="ALL">All<em>55</em></button>
+<button class="fbtn" data-f="ADD">Add<em>7</em></button>
+<button class="fbtn" data-f="WATCHLIST">Watchlist<em>10</em></button>
+<button class="fbtn" data-f="HOLD">Hold<em>6</em></button>
+<button class="fbtn" data-f="TRIM">Trim<em>3</em></button>
+<button class="fbtn" data-f="EXIT">Exit<em>29</em></button></nav>
 
 <main id="cards">
 <article class="card" data-action="EXIT" data-batch="1">
@@ -1277,7 +1306,1115 @@ h1{font-size:clamp(30px,5vw,46px);line-height:1.04;font-weight:700;margin:0 0 12
 <div class="rrow rf"><span class="rkey">G4</span><p class="rtext">Fails on all three limbs. Capacity: the buyback that WAS the EPS mechanism has stopped, at $300m in H1 2026 against $4.4bn in H1 2025, with no dividend. Balance sheet: ~$27.3bn of net debt against a ~$28.9bn market cap makes the equity a levered stub on a declining earnings base. Accounting quality: the reported organic growth history is contested in litigation alleging Payeezy merchants were funnelled onto Clover to inflate revenue and volume — so there is no denominator to price against.</p></div></div>
   <div class="meta note"><span class="mlab">Method note</span><p>DATA FLAG: the Fiserv line in the CapIQ export is a pre-print snapshot. The 6.66x forward implies EPS near $8.13; the company has since guided $7.20–7.40. Any screen using that multiple applies a withdrawn estimate.</p></div><div class="meta so"><span class="mlab">Second order</span><p>The historical growth series from which any normalised earnings estimate would be built is itself contested in court. There is no reliable denominator. Noted but not reached: the buyback that was the EPS mechanism stopped at $300m in H1 2026 against $4.4bn in H1 2025, on ~$27.3bn of net debt and no dividend.</p></div>
 </article>
+<article class="card" data-action="WATCHLIST" data-batch="5">
+  <header class="chead">
+    <div class="cid">
+      <h3>Merck & Co</h3>
+      <p class="ctick">NYSE:MRK &nbsp;·&nbsp; Healthcare</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">3.3%</span>
+      <span class="badge bWATCHLIST">WATCHLIST</span>
+    </div>
+  </header>
+  <p class="cmetrics">14.9x underlying NTM · 14.75x EV/EBITDA · 2.65% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Keytruda holds 45+ approved indications across 19 tumour types with entrenched physician practice, and Keytruda Qlex is a subcutaneous formulation no competitor can replicate for pembrolizumab. Gardasil and Animal Health are separately durable franchises.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The market prices a 2028 cliff. The specific question is what fraction of the Keytruda base converts to Qlex, which carries its own exclusivity. Qlex ran $463m against an $8.4bn franchise in Q2, roughly 5.5%, with the permanent J-code only established in April.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Immuno-oncology moving into earlier-stage disease is a durable external change; adjuvant and neoadjuvant treatment expands the treated population and extends duration of therapy; Merck holds the broadest early-stage label. Company confirms Q2 Keytruda growth was driven by uptake in earlier-stage cancers. Owned, and passing regardless of the 2028 horizon.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">Genuinely conservative accounting signal: the $2.31/share Terns charge ($5.7bn non-deductible R&D on a $6.8bn acquisition) was included in BOTH GAAP and non-GAAP EPS rather than adjusted out, pushing the tax rate to 160.3%. Most peers would have excluded it. Dividend covered; 14.9x underlying is sane. Winrevair +75%, Welireg +67%, Capvaxive +40% are real launches.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Qlex share of the Keytruda franchise at Q4 2026 and through 2027.</p></div><div class="meta note"><span class="mlab">Method note</span><p>CONSISTENCY CORRECTION: my first pass reasoned toward a Gate 3 failure because the IO mechanism transfers to biosimilars in 2028. That is a duration argument and the amendment forbids it. Data flag: the export's 100.8x LTM and 46.8x FY+1 are both charge-contaminated and unusable.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Management frames the LOE as 'a hill not a cliff', aspiring to grow through it on a >$70bn opportunity across 20+ new products.</p></div>
+</article>
+<article class="card" data-action="HOLD" data-batch="5">
+  <header class="chead">
+    <div class="cid">
+      <h3>Thermo Fisher Scientific</h3>
+      <p class="ctick">NYSE:TMO &nbsp;·&nbsp; Healthcare</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.9%</span>
+      <span class="badge bHOLD">HOLD</span>
+    </div>
+  </header>
+  <p class="cmetrics">22.0x NTM · 19.5x EV/EBITDA · 0.33% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Instrument installed base pulling consumables, plus bioproduction where single-use components are written into regulatory filings, so switching requires revalidation.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The bear case was structural impairment of pharma capex and academic funding. Q2 falsifies it: customer activity strengthened across all end markets, with academic and government returning to low-single-digit growth and pharma/biotech (~60% of revenue) strongest.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Narrowly. Bioproduction lock-in is a genuine owned mechanism. But size it honestly: group organic growth is ~4% against 6-8% reported, so roughly half of growth is acquired, and the mechanism is diluted by a large instruments and lab-products base growing near zero.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">22.0x forward and 19.5x EV/EBITDA for ~4% organic growth. Cash fell from $9,852m to $4,064m over the half against $8,872m of acquisitions and $5,238m of net new debt. The framework's acquisition-dependence test bites: paying a growth multiple for growth that is substantially bought and debt-funded.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Whether organic growth reaccelerates from ~4% toward the 7-9% investor-day target.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Microbiology divestiture closing Q3 reduces 2026 revenue ~$200m and EPS $0.05. $4bn of buybacks expected for the year.</p></div>
+</article>
+<article class="card" data-action="WATCHLIST" data-batch="5">
+  <header class="chead">
+    <div class="cid">
+      <h3>Merck KGaA</h3>
+      <p class="ctick">XTRA:MRK &nbsp;·&nbsp; Healthcare</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.8%</span>
+      <span class="badge bWATCHLIST">WATCHLIST</span>
+    </div>
+  </header>
+  <p class="cmetrics">17.6x NTM · 11.7x EV/EBITDA · 17.0x P/TB</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Process Solutions consumables and chromatography resins are specified in regulatory filings; Semiconductor Solutions materials are qualified into fab process steps. Both are qualification moats. Healthcare is the weak leg.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Process Solutions grew 15% organically, but management itself flagged temporary factors including customer warehouse stocking and Asia-Pacific buying patterns, and said destocking could hit in 2027. Evidence does not yet discriminate between demand and restocking.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Two owned content mechanisms, both evidenced. Biologics shift to single-use bioprocessing with filing-level lock-in (Life Science +8% organic). AI-driven advanced logic and memory requiring more process steps and more complex materials per wafer (Semiconductor Solutions +17% organic). Together roughly 60% of sales. Healthcare at ~40% is in structural decline: organic -3.4%, guided -4% to -2% assuming zero US Mavenclad from August.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">17.6x forward and 11.7x EV/EBITDA is fair for a 60%-qualification-moated business, with EBITDA pre margin expanding 1.6pp to 29.4%. Flags: net financial debt EUR 9.2bn before Bio-Techne closes; 'EBITDA pre' excludes acquisition items and that gap widens with SpringWorks and Bio-Techne; tangible book effectively nil at 17.0x P/TB.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>H1 2027 Process Solutions organic growth against a base management has already called high.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Bio-Techne would add close to 5% to group sales and about 10% to Life Science, immediately accretive to EBITDA pre margin, with ~EUR140m of run-rate synergies by year three.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="5">
+  <header class="chead">
+    <div class="cid">
+      <h3>UnitedHealth Group</h3>
+      <p class="ctick">NYSE:UNH &nbsp;·&nbsp; Healthcare</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.6%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">19.4x NTM · 13.3x EV/EBITDA · 2.25% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Payer, PBM and roughly 90,000 affiliated physicians under one roof captures the medical dollar at several points; the data asset across ~50m lives is not replicable.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The operational overhang is demonstrably resolving. MCR fell to 86.7% from 89.4% against 88.5% expected, adjusted EPS of $6.38 beat by 30%, guidance rose to $19.50-20.00 from above $18.25, and Optum operating income recovered 29%.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">The mechanism that drove historical growth is running backwards. UNH guides to lose roughly 1.1m Medicare Advantage and 500,000 ACA exchange members in 2026. Volume is negative, price is regulated, and the risk-adjustment coding intensity underpinning historical MA margin is the subject of active DOJ civil AND criminal investigation. Optum's care-delivery integration is real but functions as margin defence inside a shrinking membership base. Commercial margin recovery pushed past 2027, with No Surprises Act arbitration adding at least 100bp.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">Operating cash flow of $11.1bn at 1.9x adjusted net income is strong and the dividend is covered; 19.4x forward on guided EPS is fair. Flags: the MCR improvement includes $860m of net favourable prior-period development, so the underlying gain is smaller than the headline, and buybacks remain paused.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Whether the 86.7% MCR holds without prior-period development, at Q3 and Q4 2026.</p></div><div class="meta note"><span class="mlab">Method note</span><p>Data flag: P/B and P/TB both show 3.58x in the export, which cannot be right given Optum goodwill.</p></div><div class="meta so"><span class="mlab">Second order</span><p>The DOJ matter cannot be resolved on a schedule, which makes it a sizing consideration rather than a gate input.</p></div>
+</article>
+<article class="card" data-action="WATCHLIST" data-batch="5">
+  <header class="chead">
+    <div class="cid">
+      <h3>Sanofi</h3>
+      <p class="ctick">ENXTPA:SAN &nbsp;·&nbsp; Healthcare</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.5%</span>
+      <span class="badge bWATCHLIST">WATCHLIST</span>
+    </div>
+  </header>
+  <p class="cmetrics">8.45x NTM · 7.0x EV/EBITDA · 5.53% yield · near 52w low</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Dupixent is a first-in-class IL-4R-alpha blocker with a broadening type-2 inflammation label, plus scale positions in vaccines and rare disease. Note the concentration: Dupixent is EUR 5,154m of EUR 11,597m quarterly sales, roughly 44%.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Guidance was UPGRADED to ~10% CER sales growth and the shares fell 8%, because amlitelimab, itepekimab and balinatunfib were all discontinued in the same release. Near-term economics improving while the post-2031 replacement question opened.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Type-2 inflammation as unifying biology across asthma, atopic dermatitis, COPD, CRSwNP, EoE and prurigo nodularis; biologics move earlier and across indications; Sanofi owns the first and broadest-labelled molecule, so each new indication adds volume to the same asset. Evidenced: Dupixent +37.6%, above EUR 5bn a quarter for the first time.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">8.45x forward with a 5.53% yield and H1 free cash flow of EUR 3,724m, up 51.5%. Flags: business EPS of EUR 2.09 excludes the EUR 952m amlitelimab impairment, a real economic cost of failed R&D; Berenberg noted roughly EUR 200m of one-time US rebate benefit in the Dupixent number (Berenberg's rating not in hand -- treat as conflicted-unverified); net debt rose to EUR 15,513m from EUR 11,008m.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>The late-stage portfolio review under incoming R&D head Paulo Fontoura from 1 September.</p></div><div class="meta note"><span class="mlab">Method note</span><p>Data flag resolved: the export's 22.8x LTM is IFRS EPS of EUR 0.29 depressed by EUR 1,031m of impairments; the 8.45x NTM is on business EPS.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Dupixent targeted at ~EUR 25bn by 2030 plus ~EUR 10bn from pharma launches, both at constant FX.</p></div>
+</article>
+<article class="card" data-action="WATCHLIST" data-batch="5">
+  <header class="chead">
+    <div class="cid">
+      <h3>Roche Holding</h3>
+      <p class="ctick">SWX:ROG &nbsp;·&nbsp; Healthcare</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.6%</span>
+      <span class="badge bWATCHLIST">WATCHLIST</span>
+    </div>
+  </header>
+  <p class="cmetrics">17.3x NTM · 12.2x EV/EBITDA · 2.69% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Entrenched franchises in Ocrevus, Hemlibra and Vabysmo, plus the world's largest in-vitro diagnostics installed base generating a consumables annuity. The Diagnostics arm differentiates it from pure pharma.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The bear case is that Roche missed obesity and its assets are subscale. Petrelintide delivered up to 10.7% weight loss at week 42 against 1.7% placebo, roughly 9% placebo-adjusted, below the 12%+ some analysts expected -- though 98% of the best cohort reached maintenance dose, supporting the tolerability positioning. Enicepatide delivered 22.7%.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Several owned positions capturing identifiable external changes rather than one concentrated asset. Clearest chain: ageing drives retinal disease prevalence; the shift from monthly anti-VEGF toward extended-interval dosing reduces injection burden; Roche owns the only Ang-2/VEGF bispecific. Top five growth drivers delivered CHF 5.3bn, +14% CER, at 36% of group sales -- diversified, with no single cliff.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">High-single-digit core EPS growth guidance with a rising CHF dividend at 17.3x forward. Flags: currency translation is a persistent drag, turning +6% CER into -5% reported in Q1 on a CHF 1.6bn hit; 'core' earnings exclude Genentech-related amortisation, hence 51.9x P/TB.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>ZUPREME-2 topline in H2 2026 and the petrelintide/enicepatide combination Phase II.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Diagnostics grew only 3% CER against Pharma at +7%, so the personalised-medicine loop between the two segments is not yet producing outsized growth.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="5">
+  <header class="chead">
+    <div class="cid">
+      <h3>Philips</h3>
+      <p class="ctick">ENXTAM:PHIA &nbsp;·&nbsp; Healthcare</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.6%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">14.25x NTM · 8.6x EV/EBITDA · 3.70% yield · near 52w low</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Imaging and patient monitoring installed base with long replacement cycles, increasingly sold as an enterprise platform tied to software and clinical informatics, which raises switching costs.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Order intake fell 1%, ending six consecutive quarters of growth. Management attributes it to large Monitoring orders shifting into Q3, points to a record equipment backlog and rolling 12-month intake of +5%, and guides orders back to mid-single-digit growth.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">The strongest candidate is the hospital-to-home monitoring shift, and the external change is real. But Philips holds no chokepoint in it, competing for the same enterprise contracts against GE HealthCare, Baxter, Masimo and Medtronic. The fastest-growing segment, Personal Health at +8.5%, is consumer brand rather than a secular mechanism. Group comparable growth of 3-4.5% is roughly healthcare capex growth -- industry-level.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">The cleanest manufactured-margin case in the review. Headline adjusted EBITA margin of 16.4% includes a US tariff refund worth effectively 4.2 PERCENTAGE POINTS. Excluding it, underlying margin is 12.2%, DOWN roughly 20bp year on year. The free cash flow guidance raise from EUR 1.3-1.5bn to EUR 1.5-1.7bn is entirely that refund. And the full-year outlook explicitly EXCLUDES the Respironics DOJ and State Attorneys General proceedings -- a material liability sitting outside guidance.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Q3 2026 order intake.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Contrast with Dollar Tree, which excludes tariff refunds from guidance entirely and says it will reinvest rather than bank them. Same item, opposite disclosure choice.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="5">
+  <header class="chead">
+    <div class="cid">
+      <h3>Zoetis</h3>
+      <p class="ctick">NYSE:ZTS &nbsp;·&nbsp; Healthcare</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">0.3%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">10.7x NTM · 8.9x EV/EBITDA · 54% below 52w high</p>
+  <div class="train"><div class="gate gf">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">FAIL<em class="g2s">IMPAIRMENT</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rf"><span class="rkey">G1</span><p class="rtext">The first Gate 1 failure in 35 names. On the company's own 10-Q, US segment revenue fell $183m in H1 with companion animal down $240m, on 'softer end-market demand and an increasingly competitive landscape,' generic entry on Convenia and Cerenia, and lower Librela. Key dermatology fell 16% in Q2. Elanco's Zenrelia and Credelio Quattro plus Merck's Numelvi took share in both flagship franchises simultaneously. A durable moat does not surrender 16% of your largest franchise in a quarter.</p></div>
+<div class="rrow rf"><span class="rkey">G2</span><p class="rtext">IMPAIRMENT. Guidance cut twice in two quarters: revenue from $9.68-9.96bn to $9.12-9.32bn, organic from +2-5% to -3% to -1%, adjusted EPS from $6.85-7.00 to $6.15-6.25 against $6.88 consensus. Securities class action identifies four corrective disclosures alleging concealment of Librela safety concerns and competitive losses.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">Pet humanisation was the mechanism and it has snapped at the behavioural step. Younger owners are cutting routine and wellness care in response to clinic price increases running above inflation for several years. New entrants redistributed the market rather than expanding it.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">The Fiserv pattern. 10.7x looks cheap, but the denominator was cut twice in six months. P/B of 9.67x means no asset support, and the historical disclosure that any normalisation would be built on is contested in litigation.</p></div></div>
+  <div class="meta note"><span class="mlab">Method note</span><p>The only name in 55 to fail all four gates.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Livestock is the bright spot -- US livestock +23% -- but it is commodity-linked (cattle economics, disease outbreak vaccine demand) and is not what the position was bought for.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="6">
+  <header class="chead">
+    <div class="cid">
+      <h3>PepsiCo</h3>
+      <p class="ctick">NASDAQGS:PEP &nbsp;·&nbsp; Staples & Retail</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.4%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">15.9x NTM · 11.8x EV/EBITDA · 4.27% yield · near 52w low</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Frito-Lay's direct-store-delivery network is the real moat: an asset no competitor can rebuild economically, giving shelf control and in-store execution. Evidenced properly -- PFNA gained volume share simultaneously in potato chips, flavoured and unflavoured tortilla chips, pita/bagel chips, curls, puffs, pretzels and SunChips, with the US salty category growing volume for three consecutive quarters.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Elliott took a $4bn stake in September 2025 claiming 50% upside. Management rejected the central proposal, stating a full refranchising of North American beverages 'is not under consideration,' and is instead running integrated beverage-and-snack distribution tests in Texas and Florida.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">The moat is where the growth isn't. PBNA net revenue rose 7% in Q2, but six percentage points came from acquisitions net of divestitures, organic revenue was +1%, and organic VOLUME DECLINED 4%. North America organic revenue fell 0.5%. All the growth is international: EMEA +6% organic, Asia Pacific Foods +9%, International Beverages +9% with +5% volume -- emerging-market per-capita catch-up contested by Coca-Cola, Mondelez and local players. PepsiCo's structural advantage sits in North America, where volume is declining.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">15.9x forward with a covered 4.27% yield near a 52-week low. Flags: core operating margin narrowed 40bp to 16.8%; the CFO said earnings are tracking toward the LOW END of the 4-6% core EPS range; and February price cuts of up to 15% on Lay's, Tostitos, Doritos and Cheetos mean margin is being spent to buy volume that has not yet arrived domestically.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>The Texas and Florida distribution pilots, and whether North American beverage organic volume stops falling.</p></div><div class="meta so"><span class="mlab">Second order</span><p>CEO Laguarta: 'the consumer is worse than what we had anticipated, and it's driven mainly by gas prices,' with US national average gas hitting a four-year high of $4.56/gallon in late May.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="6">
+  <header class="chead">
+    <div class="cid">
+      <h3>Sysco</h3>
+      <p class="ctick">NYSE:SYY &nbsp;·&nbsp; Staples & Retail</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.2%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">16.8x NTM · 11.2x EV/EBITDA · 2.61% yield · 15.1x P/B</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Route density. Foodservice distribution economics turn on drops per route mile, and Sysco has the densest US network. Sysco Brand penetration at 46.4% of local mix, up 30bp, is how that density converts to margin.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Hourican confirmed 'foot traffic to restaurants remains down year-over-year,' yet US local case growth improved from 0.5% in H1 FY26 to 2.9% in H2, with Q4 at 2.6%, and International posted its 11th consecutive quarter of double-digit adjusted operating income growth. Sysco is taking share against a shrinking market.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">The growth is execution and acquisition, not a mechanism. Independent-customer share gain is explicitly not a secular tailwind under the framework, and the underlying market is contracting. The named drivers are sales-colleague retention, Sysco Your Way, Perks 2.0 and the AI 360 sales tool -- good management, not a durable external change reaching the company's economics.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">Three normalisation problems. Share repurchases are SUSPENDED to preserve cash and accelerate deleveraging ahead of Restaurant Depot, so total distribution is falling. FY2027 guidance of 6-7% revenue and 9-11% adjusted EPS growth INCLUDES A 53RD WEEK, so the underlying rate is materially lower. And $250m of the synergy case rests on a deal that has drawn a SECOND FTC REQUEST. Tangible book is negative at 15.1x P/B, and elevated fuel is pressuring gross margin through inbound freight.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Whether ~2.5% local case growth holds through FY2027 with traffic still negative.</p></div><div class="meta so"><span class="mlab">Second order</span><p>$1bn returned in FY2026 with the quarterly dividend raised 2% to $0.55, but the buyback suspension means total distribution has fallen.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="6">
+  <header class="chead">
+    <div class="cid">
+      <h3>Dollar Tree</h3>
+      <p class="ctick">NASDAQGS:DLTR &nbsp;·&nbsp; Staples & Retail</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.4%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">18.0x NTM · 11.7x EV/EBITDA · no dividend · 7.10x P/B</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Qualified. The moat is a sourcing and price-point capability. Holding roughly 85% of the assortment at $2 and below requires scale purchasing, product re-speccing and country-of-origin flexibility a small operator cannot replicate. The 'five levers' offset 90% of the first tariff round; that flexibility IS the moat.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Family Dollar is sold, freeing management plus roughly $800m of net proceeds and $350m of tax benefits.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">The mechanism is self-defeating. Trade-down is a cyclical income effect, not a durable external change, and it reverses. More decisively, current growth is not volume: traffic fell 1% while average ticket rose 4.5%, so the comp is ticket-led, driven largely by multi-price conversion. Multi-price raises ticket by moving away from the fixed price point that constitutes the moat. The comp is being bought with the franchise.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">18.0x on guided adjusted EPS of $6.70-7.10, with gross margin up 120bp on higher mark-on, lower freight and lower shrink. Worth crediting explicitly: the FY2026 outlook EXCLUDES tariff refunds, with management stating it intends to reinvest any refund rather than bank it in guidance -- the opposite of the Philips treatment and a genuinely conservative disclosure choice. Flags: no dividend, so distribution is buyback-only; 7.10x book.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Traffic. It fell 1% in Q1 FY2026 while average ticket rose 4.5%.</p></div><div class="meta so"><span class="mlab">Second order</span><p>The 2.4m new customers won over twelve months, two-thirds from households earning over $100,000, is the trade-down cohort -- and it is a cohort that leaves when incomes recover.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="6">
+  <header class="chead">
+    <div class="cid">
+      <h3>Associated British Foods</h3>
+      <p class="ctick">LSE:ABF &nbsp;·&nbsp; Staples & Retail</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.1%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">13.5x NTM · 7.18x EV/EBITDA · 2.99% yield · 1.30x P/B</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Primark's cost and sourcing position supports a price point competitors cannot match, and it is deliberately store-led for most volume, avoiding the e-commerce fulfilment drag that has compressed fast-fashion margins elsewhere. Grocery carries real brands; AB Mauri has scale in yeast. Sugar has no moat.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The Board decided in April 2026 to demerge Retail from Food, on track to be effective before the end of calendar 2027 -- a dated catalyst separating Primark from a loss-making commodity business.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">Primark's Q3 sales rose 3% 'supported by new store openings across Europe, the United States and the Middle East' while LIKE-FOR-LIKE SALES DECLINED. New-store rollout is capital deployment, not a secular mechanism, and the framework rejects penetration-curve arguments by name. Sugar is separately impaired: an adjusted operating loss of GBP 25-60m guided for FY2026, with management expecting FURTHER DETERIORATION IN FY2027 from the GBP 60m upper end and flagging more European cost action.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">13.5x forward and 7.18x EV/EBITDA at 1.30x book with a covered 2.99% yield is cheap for Primark plus Grocery plus Ingredients, and the demerger should surface it. Flags: H1 adjusted operating profit fell 18%; FY2025 revenue fell 1% to GBP 19.5bn with adjusted operating profit down 12% to GBP 1.73bn; and Sugar's guided GBP 25-60m loss compares with a GBP 22m consensus loss cited by Citigroup, so the downgrade was material (Citigroup's rating not in hand -- conflicted-unverified).</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>The demerger completing on schedule, and Primark landing the guided ~10% adjusted operating margin.</p></div><div class="meta note"><span class="mlab">Method note</span><p>If the demerger prospectus shows Primark standalone with like-for-like growth restored, Gate 3 deserves re-running on the retail entity alone. That is a different security.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Group adjusted operating profit and adjusted EPS are both guided below last year.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="6">
+  <header class="chead">
+    <div class="cid">
+      <h3>Pernod Ricard</h3>
+      <p class="ctick">ENXTPA:RI &nbsp;·&nbsp; Staples & Retail</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.6%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">11.8x NTM · 10.3x EV/EBITDA · 6.89% yield · 37% below 52w high</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">FAIL<em class="g2s">NO EDGE</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Aged spirits inventory is a genuine barrier. Martell and Glenlivet require years of maturation, so supply cannot be replicated on demand, and the brands carry real price premia.</p></div>
+<div class="rrow rf"><span class="rkey">G2</span><p class="rtext">The question was destocking versus structural demand change, and management's own guidance answers it. FY2026 saw US sales fall 14% and China fall 19%. Pernod CUT its medium-term guidance, now projecting organic net sales growth closer to the LOWER END of the 3-6% range for 2027-2029, and guides FY2027 organic sales broadly stable. A company that cuts its own three-year growth range while citing regulatory measures hitting prestige demand is not a mispricing. RBC noted full-year margin guidance was 'unchanged and opaque.'</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">Premiumisation was the mechanism and it has snapped at the behavioural step. Specialty Brands fell 9% in Q3 and 8% year-to-date. What is growing is ready-to-drink at +26% organic -- the lowest-price, lowest-margin end, which is premiumisation running backwards. India is genuinely growing (+3%, +7% excluding the Maharashtra excise change) but is one market against a global slump.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">The sharpest point in the batch: the 6.89% yield is being funded by cutting the asset. Pernod held the dividend flat at EUR 4.70 while REDUCING STRATEGIC INVESTMENTS FROM BELOW EUR 900m TO BELOW EUR 700m for FY2026. In a business whose competitive advantage IS aged liquid, cutting inventory investment to defend a flat dividend borrows supply from future years -- exactly the framework's distinction between distributable free cash flow and liquidating capital that should be reinvested.</p></div></div>
+  <div class="meta so"><span class="mlab">Second order</span><p>Fails three gates -- the only name outside Zoetis to do so.</p></div>
+</article>
+<article class="card" data-action="HOLD" data-batch="6">
+  <header class="chead">
+    <div class="cid">
+      <h3>Sony Group</h3>
+      <p class="ctick">TSE:6758 &nbsp;·&nbsp; Japan Consumer</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.2%</span>
+      <span class="badge bHOLD">HOLD</span>
+    </div>
+  </header>
+  <p class="cmetrics">16.4x NTM · 7.95x EV/EBITDA · 0.98% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Two distinct moats. PlayStation is a two-sided platform with an installed base and first-party studios. Image sensors are stronger: dominant share in high-end CMOS, qualified into flagship handset designs years ahead, with a durable manufacturing lead.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Two dated questions. The 28 July Kumamoto earthquake suspended production at the Kumamoto Technology Center, with output resuming gradually from 4 August and expected back to pre-quake levels by mid-August; the financial effect is NOT included in the full-year forecast. Separately, Sony warned memory-market conditions could pressure high-end smartphone shipments in H2 and expects full-year mobile-sensor revenue to decline slightly.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Strongest in the batch. Computational photography and multi-camera architectures raise both the number and the average selling price of sensors per handset; Sony is qualified into flagship designs and holds the process lead; content per device rises independent of unit volume. Evidenced exactly: I&SS sales +26% to JPY 512.7bn with operating income up roughly 2.3x to a Q1-record JPY 122.2bn, DRIVEN BY HIGHER AVERAGE SELLING PRICES FOR MOBILE SENSORS. Owned content, not borrowed volume, and the TSMC development partnership extends it.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">Two flags, one decisive. Sony expects most of an estimated JPY 80bn of US TARIFF REFUNDS to benefit the current fiscal year, so part of the raised guidance is a one-off recovery. And the full-year operating cash flow outlook was left UNCHANGED at JPY 1,500bn while operating income guidance rose from JPY 1,600bn to JPY 1,720bn. Operating income up JPY 120bn with cash guidance flat is precisely the gap the framework says to interrogate, and the Kumamoto impact sits outside the forecast on top of it.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>H2 I&SS revenue against the raised JPY 2.11trn segment forecast.</p></div><div class="meta note"><span class="mlab">Method note</span><p>Data flag: no meaningful trailing P/E in the export. Cause is the Financial Services partial spin-off -- SFGI classified as a discontinued operation from Q1 FY25 with comparatives re-presented, and from Q3 FY25 the retained stake equity-accounted within operating income. Trailing EPS is not comparable.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Dividend raised JPY 10 to JPY 35 per share. Tamron, a lens supplier to Sony and rivals, has received an acquisition proposal from Sony.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="6">
+  <header class="chead">
+    <div class="cid">
+      <h3>Nintendo</h3>
+      <p class="ctick">TSE:7974 &nbsp;·&nbsp; Japan Consumer</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">0.8%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">21.4x NTM (above 20.4x trailing) · 15.6x EV/EBITDA · 2.95% yield · 50% below 52w high</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">The moat is intellectual property. Mario, Pokemon, Zelda and Animal Crossing are multi-generational franchises that cannot be competed away and run only on Nintendo hardware. Pricing power demonstrated by raising console prices mid-cycle.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">FY2026 was the best year in company history: revenue almost doubled to JPY 2.31trn, net profit +52.1% to JPY 424bn, Switch 2 at 19.86m units and the largest console launch by units Nintendo has ever had. Yet FY2027 guides revenue -11.4% to JPY 2.05trn and net profit -27% to JPY 310bn on 16.5m units (-17%) and 165m software units (-11%). Morningstar's Kazunori Ito calls that 'overly conservative' and models 19m hardware and 205m software (Morningstar's rating not in hand -- conflicted-unverified). The oddity is real: unit volume normally climbs through years two and three.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">Console hardware is a self-determined product cadence, not a durable external change reaching the company's economics. The digital-mix margin shift is real but maturing, and management's own guidance has software units DECLINING 11% in the console's second year, when engagement should be ramping.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">Three problems. A JPY 100bn COST HIT FROM MEMORY PRICES, TARIFFS AND SHIPPING, with management stating the conditions are 'expected to persist over the medium to long term' -- not framed as transitory. The Q1 FY2027 profit jump of 150% included roughly $300m of TARIFF REFUNDS. And 21.4x forward ABOVE 20.4x trailing means paying a higher multiple for declining earnings.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>The Nintendo Direct software slate and holiday-quarter hardware.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Nintendo's memory cost headwind is Samsung's earnings tailwind. The fund owns both sides of the DRAM price again.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="7">
+  <header class="chead">
+    <div class="cid">
+      <h3>Aurizon Holdings</h3>
+      <p class="ctick">ASX:AZJ &nbsp;·&nbsp; Industrials & Transport</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.0%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">16.0x NTM · 7.23x EV/EBITDA · 4.46% yield · near 52w high</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">The Central Queensland Coal Network is a 2,670km monopoly with no substitute for Queensland coal exporters, alongside the 2,100km South Australia/Northern Territory network. Over 250 million tonnes hauled annually. Per the amendment, this is where the regulated character belongs -- Gate 1, not Gate 3.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The ten-year UT5+ Network access undertaking is in draft approval, establishing access and pricing arrangements for the next decade from FY2027, with the final outcome due in the coming year. A specific, dated, material determination.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">The amendment doing exactly what it was written to do. FY2027 NON-GROWTH capital expenditure is guided at $590-660m against GROWTH capital expenditure of just $70-120m. A maintenance-dominated asset base is not a growing RAB. Network EBITDA rose 8% on 'higher regulatory revenue,' and the FY2027 increase is attributed partly to 'final recognition of prior-year revenue cap adjustments' -- a timing catch-up. Network volumes are expected to fall short of regulatory assumptions while Aurizon still recognises full allowable revenue: the revenue cap working as designed, and precisely the mature toll on existing volume the amendment fails. Coal EBITDA rose 2% on price indexation, FY2027 Coal EBITDA is guided LOWER on reduced contracted volumes, and FY2026 carried a $54m impairment on the Coal NSW cash-generating unit.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">Dividends of 23.0 cents were a 90% PAYOUT RATIO OF UNDERLYING NPAT, up 46% from 15.7 cents, alongside a completed A$250m buyback at an average A$3.72. Against underlying free cash flow of $573m, that distribution is roughly A$670m -- more than the cash generated -- with FY2027 capex of $660-780m still to fund, at 57% gearing and 3.0x net debt/EBITDA. And the underlying NPAT the payout is measured against excludes the $54m coal impairment.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>The UT5+ final decision.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Bulk EBITDA grew 38%, but $64m of that came partly from the absence of prior-year doubtful debt provisions, and containerised freight is still only on a pathway to break-even in FY2027.</p></div>
+</article>
+<article class="card" data-action="WATCHLIST" data-batch="7">
+  <header class="chead">
+    <div class="cid">
+      <h3>VINCI</h3>
+      <p class="ctick">ENXTPA:DG &nbsp;·&nbsp; Industrials & Transport</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.0%</span>
+      <span class="badge bWATCHLIST">WATCHLIST</span>
+    </div>
+  </header>
+  <p class="cmetrics">13.1x NTM · 6.95x EV/EBITDA · 4.01% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">The integrated model is the moat. Very few groups can design, build, finance AND operate long-dated infrastructure. Evidence: on the A154-A120 award, VINCI Concessions was named preferred concessionaire, VINCI Autoroutes handles programme management, financing and operation, and VINCI Construction designs and builds. Competitors bid for one leg of that.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Near-term traffic is genuinely unresolved. French motorway LIGHT VEHICLE TRAFFIC FELL 3.7% on the March fuel price rise and heatwaves, and VINCI Airports passenger numbers were merely STABLE in H1, with the Middle East conflict and China-Japan tensions weighing. Guidance was adjusted to stable airport traffic and slightly declining motorway traffic. Management calls it geopolitical and macro rather than a change in the long-term case -- an assertion, not yet evidence.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Separates cleanly from Aurizon. Public balance sheets cannot fund the required infrastructure, so governments award long-dated concessions; VINCI wins them on the integrated capability; each award adds a 30-50 year contracted, inflation-indexed stream. The base is GROWING, not flat: a new 97km motorway concession for 35 years with signature expected Q3 2026, Brazilian highways integrated, Safeway Concessions in India, Lisbon new airport and the Gatwick northern runway in the pipeline, and an order book at a record EUR 76.8bn on order intake up 8% to EUR 34.4bn. Separately VINCI Energies grows mid-to-high single digits on electrification, digital infrastructure and data centres.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">Full-year free cash flow potentially reaching EUR 6bn, a 60% of net income dividend payout target, 29 consecutive years of dividends, and net income up nearly 10% to close to EUR 2.1bn at 13.1x forward. Flag: Concessions EBITDA margin improved DESPITE falling traffic because teams cut labour, variable costs, IT services and multi-technical maintenance. Defending margin by cutting cost against declining volume is not a repeatable source of margin. Management also acknowledged being underrepresented in the US data centre market.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>H2 2026 traffic, and the A154-A120 contract signature expected in Q3 2026.</p></div><div class="meta note"><span class="mlab">Method note</span><p>Sourcing note: one secondary source claimed motorway traffic rose low-to-mid single digits and airport traffic ran several points above 2025. That contradicts VINCI's own disclosure and is disregarded.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Overseas markets accounted for 59% of H1 revenue, up from 57%, which helped offset pressure in European transport assets.</p></div>
+</article>
+<article class="card" data-action="WATCHLIST" data-batch="7">
+  <header class="chead">
+    <div class="cid">
+      <h3>DuPont de Nemours</h3>
+      <p class="ctick">NYSE:DD &nbsp;·&nbsp; Industrials & Transport</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.6%</span>
+      <span class="badge bWATCHLIST">WATCHLIST</span>
+    </div>
+  </header>
+  <p class="cmetrics">19.5x NTM · 11.9x EV/EBITDA · 1.63% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Specification moats in both segments. Water: reverse-osmosis membranes and ion-exchange resins designed into plant systems, so replacement consumables follow the asset's life. Healthcare: sterile barrier packaging and biopharma filtration written into device regulatory filings.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The post-Qnity entity is being re-rated and the numbers support it: two consecutive beat-and-raise quarters, adjusted EPS up 21% to $1.88 on 4% organic growth, 80bp of operating EBITDA margin expansion, and transaction-adjusted free cash flow conversion of 127% against a 90% target. The open item is narrower: water grew only low single digits on Middle East weakness, roughly 10% of water sales, with Koch stating 'there's no structural change' and citing project timing rather than cancellations.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Two content mechanisms with growing installed bases. Semiconductor fabs require ultrapure water at rising volumes per wafer and industrial reuse mandates are expanding, with DuPont's membranes and resins specified into system design -- evidenced by double-digit growth in industrial water and semiconductor markets. In healthcare, biopharma and personal protection grew double digits. Aerospace and EV battery applications also grew double digits, with the battery business at roughly $70m of revenue moving toward triple-digit millions.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">Free cash flow conversion running near 100% for the full year against a 90% target, operating EBITDA guidance raised to a ~$1.76bn midpoint and adjusted EPS to $7.24 (+18%), with a $250m buyback launched. Three flags: a 30bp full-year and 50bp second-half margin headwind from oil and gas inflation requiring pricing to offset; second-half organic growth of ~6% driven by CARRYOVER PRICING RATHER THAN VOLUME; and more than $1bn retained for water and healthcare M&A at expected mid-teens gross returns falling to LOW-TEENS NET of synergies, which is thin against cost of capital and triggers the acquisition-dependence test.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Water organic growth returning to mid-single digits as Middle East projects release -- H2 2026 into Q1 2027.</p></div><div class="meta note"><span class="mlab">Method note</span><p>Data flag: the 52-week range of $250.20 to $100.01 spans both the 1 November 2025 Qnity Electronics separation and a 1-for-3 reverse stock split, and is not comparable to the current price. The Aramids sale also completed 1 April 2026 for roughly $1.2bn cash plus a $300m note and $325m equity, and the GICS classification changed to Industrials on 31 July 2026.</p></div><div class="meta so"><span class="mlab">Second order</span><p>The primary bear case is being falsified, but 19.5x for 4% organic growth plus an unproven $1bn deployment plan is not an add.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="7">
+  <header class="chead">
+    <div class="cid">
+      <h3>CNH Industrial</h3>
+      <p class="ctick">NYSE:CNH &nbsp;·&nbsp; Industrials & Transport</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.6%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">18.9x NTM · 0.93% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Case IH and New Holland are two of the four global full-line agricultural brands, with dealer networks and an installed fleet generating parts and service. The captive finance arm, a $28.0bn managed portfolio, is a real competitive tool: it funds customer purchases through the trough when banks retrench.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">Management supplied the test itself. Marx describes 'a market that remains at the trough of the agriculture cycle,' citing dealer inventory normalisation, ageing fleets and more balanced new-versus-used pricing. But he was explicit: 'We do not have enough information yet to assess whether the constructive signs we are seeing in dealer inventories, fleet age, and used equipment pricing will translate into higher equipment demand, even at modest levels,' with model year 2027 order intake so far indicating 'flattish 2027 industry retail demand.'</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">The replacement cycle is a cycle, not a durable external change. The candidate mechanism is precision agriculture content per machine, which would be owned if CNH held a chokepoint. It does not: Deere is ahead on integrated precision platforms, AGCO holds PTx Trimble, and CNH is spending 6.1% of sales on R&D to close a gap rather than extend a lead -- with both CNH and AGCO announcing precision and technology leadership changes.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">Agriculture adjusted EBIT margin fell to 5.2% FROM 8.1%, with group adjusted EBIT down to $170m from $263m on lower South American volumes, unfavourable North American and EMEA mix, tariffs and higher SG&A and R&D. Industrial free cash flow was $150m in the quarter. The DIVIDEND WAS CUT TO $0.10 FROM $0.25. And the credit book is deteriorating: receivables more than 30 days past due rose to 4.4% from 3.9% on farmer economics in South America, with the managed portfolio down $0.7bn. FY2026 adjusted EPS of $0.41-0.46 against $10.79 is 23-26x trough earnings.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>MY2027 order intake as the book fills through H2 2026.</p></div><div class="meta note"><span class="mlab">Method note</span><p>Data flag: the export's 31.8x EV/EBITDA is distorted upward because captive finance debt sits in enterprise value against industrial EBITDA. Do not use it.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Construction is the bright spot -- global industry heavy equipment volume +17%, light +6% -- and management raised construction guidance while holding agriculture flat.</p></div>
+</article>
+<article class="card" data-action="ADD" data-batch="7">
+  <header class="chead">
+    <div class="cid">
+      <h3>L3Harris Technologies</h3>
+      <p class="ctick">NYSE:LHX &nbsp;·&nbsp; Industrials & Transport</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.5%</span>
+      <span class="badge bADD">ADD</span>
+    </div>
+  </header>
+  <p class="cmetrics">23.1x NTM · 14.1x EV/EBITDA · 1.75% yield · 25% below 52w high</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Solid rocket motors are a US two-supplier duopoly with multi-year qualification barriers, alongside dominant share in NSA-certified tactical radios. The strongest evidence of scarcity is unusual: on 17 April 2026 the US DEPARTMENT OF WAR ITSELF purchased 10,000 shares of Redeemable Aerojet Rocketdyne Series A Convertible Preferred Stock at $100,000 par, plus pre-IPO and post-IPO warrants, for an aggregate $1 billion. Governments do not capitalise suppliers they can replace.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The shares fell on a beat-and-raise. Revenue rose 8% to $5.9bn, EPS 28% to $3.13, EBIT margin reached 16.02% (49bp ahead of consensus, up 31bp sequentially), guidance went to $23.2-23.7bn revenue and $11.80-12.00 EPS, and backlog rose past $42bn. The specific concern is the Missile Solutions IPO postponed to mid-2027, with management saying market conditions 'do not yet reflect the value it believes it is building.'</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">The strongest defence mechanism available and it is contracted. Depleted Western interceptor stockpiles have made air-and-missile-defence capacity a national security constraint; procurement has shifted to multi-year commitments with governments funding capacity directly; and solid rocket motors are a duopoly L3Harris half-owns, so every interceptor requires its product. Evidenced: a $12BN SEVEN-YEAR THAAD AND PAC-3 FRAMEWORK AGREEMENT with Lockheed carrying roughly $2bn of future profit, plans to quadruple THAAD and nearly triple PAC-3 output with a new automated PAC-3 facility in late 2027, deliveries up over 60% since the Aerojet acquisition with efficiency up 22%, and international sales up more than 20% to 23% of revenue.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">$3bn free cash flow reaffirmed on a roughly $53bn market cap, segment margin guidance held at low 16% WHILE missile capex ran up 92% year-to-date, and approximately $4bn of cash expected after the commercial space propulsion divestiture. Two flags: the $1bn DoW preferred is redeemable, convertible and warrant-bearing at the SUBSIDIARY level, so it is senior capital plus future dilution sitting outside the parent's headline leverage; and only $180m of the $800m authorised facility and equipment orders has been spent, so the capex wave is largely ahead.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Conversion of the more than $20bn of contracts under negotiation into backlog, quarterly, and the mid-2027 IPO proceeding.</p></div><div class="meta note"><span class="mlab">Method note</span><p>Fullest-priced add in the review, and the justification is the contracted backlog rather than the multiple.</p></div><div class="meta so"><span class="mlab">Second order</span><p>The first Gate 3 pass in the review built on a signed contract rather than an inference.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="7">
+  <header class="chead">
+    <div class="cid">
+      <h3>UPM-Kymmene</h3>
+      <p class="ctick">HLSE:UPM &nbsp;·&nbsp; Industrials & Transport</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.9%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">14.2x NTM · 10.5x EV/EBITDA · 6.41% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Two scarce-asset positions. Fibres South in Uruguay earned a 24% margin (EUR 101m EBIT in Q2) while Fibres North LOST EUR 10m on the same commodity -- that spread is the cost position, and it is the asset. Separately UPM holds roughly 12 TWh of clean baseload PPAs with 99% CO2-free generation in a market where Finnish electricity consumption grew 5% over twelve months.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The portfolio is being reshaped: a graphic paper joint venture with Sappi and a UPM Plywood demerger both progressing. The open question is whether the biomaterials leg earns its capital -- Leuna posted a EUR 65m EBIT LOSS in H1 with costs guided higher in H2 and breakeven only expected in 2027.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">The split is the reason. BORROWED: the largest profit pool is pulp, and Fibres North's loss against Fibres South's 24% margin proves the driver is cost position, which is Gate 1 evidence, not a Gate 3 mechanism. Biofuels' 35% H1 margin is attributed by management to bio-premiums AND 'elevated fossil fuel reference prices' from Middle East disruption -- part owned, part borrowed. OWNED: Finnish carbon-free baseload generation meeting 5% electricity demand growth from data centres and electrification -- genuine, and not replicable quickly. But the owned mechanism is a minority of group EBIT, and the leg intended to become the growth engine is loss-making with breakeven a year away.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">The 6.41% yield rests on earnings containing NON-CASH FOREST ASSET FAIR VALUE GAINS: H2 2025 alone contributed EUR 131m, and management guided 2026 to be up to EUR 100m lower on interest rate and wood cost assumptions. Meanwhile Q2 OPERATING CASH FLOW FELL 52% to EUR 225m from EUR 468m, net debt/EBITDA rose to 2.36 from 2.12, buybacks are paused after the EUR 159.6m programme, and H2 carries roughly EUR 40m more maintenance plus higher Leuna costs. The dividend is covered on COMPARABLE EPS by policy -- but comparable EPS includes revaluation gains that are now reversing.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Lignin derivative deliveries starting in Q3 2026 as guided, and Leuna reaching breakeven in 2027.</p></div><div class="meta note"><span class="mlab">Method note</span><p>If the Plywood demerger and Sappi JV leave a residual group dominated by Energy, Biofuels and Advanced Materials, Gate 3 deserves re-running on that entity. Same logic as ABF and Primark.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Q2 comparable EBIT rose 71% to EUR 212m with margin from 5.3% to 9.0%, and H1 comparable EBIT of EUR 471m landed at the upper end of guidance.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="7">
+  <header class="chead">
+    <div class="cid">
+      <h3>Deutsche Post / DHL Group</h3>
+      <p class="ctick">XTRA:DHL &nbsp;·&nbsp; Industrials & Transport</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.4%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">16.3x NTM · 7.39x EV/EBITDA · 3.42% yield · near 52w high</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">DHL Express operates one of only three integrated global air express networks, with in-house customs brokerage across 220+ countries. Rebuilding that requires decades and multi-billion capex. Post & Parcel Germany is a regulated near-monopoly in German letter mail -- and per the amendment, that regulated character belongs here, not at Gate 3.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The bear case was that tariffs would structurally impair cross-border express. Q2 falsifies it on the numbers: revenue +13%, Group EBIT +29% to roughly EUR 1,850m from EUR 1,429m, and Express EBIT up to about EUR 1,195m from EUR 730m on 'very favorable operating leverage.' But the company states the prior-year quarter 'had been impacted by customs and other trade policy conditions.'</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">Decompose the earnings step-up and nothing durable and owned remains. It is (i) a weak-base recovery in Express, (ii) the FIT FOR GROWTH programme, which delivered more than EUR 1bn of EBIT benefit and is now COMPLETE six months early, with management saying it continues 'but not as formal Group program,' and (iii) yield management, where revenue growth has outpaced volume growth since 2020. Cost programmes and pricing discipline are margin actions with finite runway, not secular mechanisms. Meanwhile the regulated leg is in explicit decline -- Post & Parcel Germany EBIT fell to about EUR 135m from EUR 166m, with management framing the task as 'managing the secular decline in mail.'</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">The EUR 3.0bn free cash flow target maintained with H1 FCF up 28%, ROIC improved to 14.9% from 13.8% AND INTRODUCED AS AN INCENTIVISED STEERING METRIC (a genuinely good governance signal), a covered 3.42% yield, and the buyback raised EUR 500m to up to EUR 6.5bn extended through end-2027 with roughly EUR 1.5bn still available. Flags: gross capex of EUR 3.0-3.3bn against EUR 3bn of FCF leaves thin headroom, and the EUR 1bn cost tailwind does not repeat.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Q3 and Q4 Express volumes against a normalised comparison base.</p></div><div class="meta so"><span class="mlab">Second order</span><p>The one genuinely owned niche -- data centre and life-science contract logistics inside Supply Chain, with EUR 4bn of new contract value in H1 -- is real but small against a EUR 6.5bn EBIT base.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="7">
+  <header class="chead">
+    <div class="cid">
+      <h3>Komatsu</h3>
+      <p class="ctick">TSE:6301 &nbsp;·&nbsp; Industrials & Transport</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">0.9%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">15.9x NTM · 9.62x EV/EBITDA · 2.65% yield · near 52w high</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">FAIL<em class="g2s">NO EDGE</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">The aftermarket is the moat. PARTS SALES ROSE 18.4% TO JPY 286.5BN, roughly 27% of group sales, on an installed fleet where mining components must be OEM-qualified for warranty and remote-site availability. Add the FrontRunner autonomous haulage installed base and the dealer network.</p></div>
+<div class="rrow rf"><span class="rkey">G2</span><p class="rtext">Every driver is disclosed and quantified. Sales growth of 14.7% to a record JPY 1,043.1bn is substantially yen depreciation, with management stating plainly that EXCLUDING CURRENCY, growth in the core construction, mining and utility segment was 'MUCH MORE MODEST.' Tariff impact is now guided lower on disclosed bilateral changes; the August price increase is announced at more than JPY 10bn; the mining mix is described market by market. And FY2027 guidance, even after the upward revision, still implies operating income down 2.2% and net income down 7.3%.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">Split and sized as far as disclosure allows. Borrowed: yen translation, copper and gold prices driving mining capex, Indonesian coal weakness, the North American construction cycle (which management attributes partly to data centres and rental demand -- available to every equipment maker). Owned: the parts annuity at 27% of sales, though it scales with the fleet which scales with the cycle; and autonomous haulage content, where Komatsu holds one of two credible platforms. KOMATSU DOES NOT BREAK OUT AHS REVENUE, so that mechanism cannot be sized from disclosure -- the number is not in hand. What is unambiguously owned and growing is not established.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">Dividend of JPY 190 maintained at a 48.6% payout, roughly JPY 61.7bn of a JPY 100bn buyback executed and completed in early July, and cash up JPY 132.2bn to JPY 571.9bn. The disclosure is honest about FX. Flags: operating margin contracted 0.9pp to 14.5% with the core segment margin down to 13.5% from 14.5%, and Q1 FREE CASH FLOW WAS AN OUTFLOW of JPY 1.6bn.</p></div></div>
+  <div class="meta so"><span class="mlab">Second order</span><p>North America CMU net sales rose 29.5% with construction equipment up 34.8%, supported by data centres and rental demand -- the same capital cycle appearing across a dozen holdings.</p></div>
+</article>
+<article class="card" data-action="ADD" data-batch="8">
+  <header class="chead">
+    <div class="cid">
+      <h3>Enel</h3>
+      <p class="ctick">BIT:ENEL &nbsp;·&nbsp; Real Assets & Utilities</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.9%</span>
+      <span class="badge bADD">ADD</span>
+    </div>
+  </header>
+  <p class="cmetrics">13.5x NTM · 7.60x EV/EBITDA · 4.92% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Italian, Iberian and Latin American distribution networks are concession-protected natural monopolies. Per the amendment, that sits here, not at Gate 3.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The Brazil Sao Paulo concession review is unresolved on a material asset -- Brazilian grid capex rose 30% to EUR 0.6bn in H1. The primary bear case (commodity exposure plus leverage) is being falsified: over 90% of cumulative 2026-28 EBITDA is expected regulated or contracted, retail has stabilised on fixed-price contracts, and EPS is guided to the top end.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">The cleanest amendment admit in the portfolio. Electrification and renewables penetration require grid reinforcement; regulators remunerate incremental investment on RAB; Enel is the incumbent concessionaire so the required capital lands on ITS asset base and nobody else can build in its territory. Evidenced by a GROWING base, not a flat toll: RAB reached EUR 49.7bn in H1, up EUR 4.4bn or 10% year-on-year, heading to roughly EUR 58bn by 2028 from about EUR 47bn at end-2025 -- 22% growth. Grid capex of EUR 3.5bn in the half, up 13%, with Italy's EUR 2.2bn in six months already matching the ANNUAL average of 2018-2022.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">4.92% yield at roughly a 66% payout on ~EUR 0.74 guided EPS, EUR 2bn of a EUR 3.5bn buyback completed, leverage at 2.6x net debt/EBITDA with FFO/net debt of 25%. Flags: net debt is guided UP from EUR 61bn to EUR 64-65bn by year-end while EUR 6.6bn was distributed, so the build is partly debt-funded; the June 2026 ECB hike compresses the spread between allowed returns and cost of capital; and P/TB of 16.31x means the equity is largely concession intangibles.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>The Brazil Sao Paulo concession review outcome.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Brownfield pipeline of ~15 GW of renewable opportunities, with 1.5 GW signed contributing ~EUR 0.2bn of annual EBITDA in 2027-28 and 2-3 GW at binding offer stage worth a potential EUR 0.3bn.</p></div>
+</article>
+<article class="card" data-action="HOLD" data-batch="8">
+  <header class="chead">
+    <div class="cid">
+      <h3>Cellnex Telecom</h3>
+      <p class="ctick">BME:CLNX &nbsp;·&nbsp; Real Assets & Utilities</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.0%</span>
+      <span class="badge bHOLD">HOLD</span>
+    </div>
+  </header>
+  <p class="cmetrics">no meaningful P/E on any basis · 11.65x EV/EBITDA LTM · 2.17% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Site portfolios in dense European markets are irreplaceable (planning, landlord rights, specific locations), under long contractual tenure: the Sunrise MSA runs an initial 20 years with two 10-year renewals, and Vodafone Spain was renewed for a further ten years on roughly 2,000 PoPs at unchanged terms.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The bear case was that a leveraged roll-up could never generate cash. Falsified: FREE CASH FLOW JUMPED TO EUR 301M FROM EUR 19M, RLFCF +11% and RLFCF per share +18.1%, leverage down to 6.99x IFRS from 7.18x, and 2027 FCF guided to EUR 975m-1,175m.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">The split carries it. Escalators and CPI indexation are BORROWED and excluded from the verdict. What passes is colocation: gross PoP growth of 5.7%, of which 3.6pp is COLOCATION and 1.8pp build-to-suit, with tenancy ratio rising to 1.63x and churn contained at -0.6%. An incremental tenant on an existing tower converts at near-100% margin, and only Cellnex owns that location. The contracted BTS backlog (Sunrise's additional 300 sites from January 2027 over five years) is further owned growth.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">2026 shareholder remuneration of EUR 1bn EXCEEDS free cash flow guidance of EUR 600-700m, funded off a balance sheet still at 6.99x against a 5-6x target. The harder problem is the refinancing arithmetic: average cost of debt is 2.1% on a 4.4-year average maturity, while the January 2026 dual-series issue priced at a 3.4% COUPON. Rolling the EUR 20.76bn book from 2.1% to 3.4% adds roughly EUR 270M OF ANNUAL INTEREST -- about 40% of 2026 FCF guidance. And there is no earnings denominator at all: NM on trailing, forward and FY+1.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Leverage reaching the 5-6x target, and 2027 FCF landing in the guided EUR 975m-1,175m range.</p></div><div class="meta so"><span class="mlab">Second order</span><p>EUR 2.0bn returned to shareholders equals roughly 11% of the EUR 18.3bn market capitalisation, against net financial debt of EUR 20,763m -- debt exceeds equity value.</p></div>
+</article>
+<article class="card" data-action="ADD" data-batch="8">
+  <header class="chead">
+    <div class="cid">
+      <h3>Prologis</h3>
+      <p class="ctick">NYSE:PLD &nbsp;·&nbsp; Real Assets & Utilities</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">2.2%</span>
+      <span class="badge bADD">ADD</span>
+    </div>
+  </header>
+  <p class="cmetrics">22.4x Core FFO · 3.04% yield · debt/EBITDA 4.7x</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">PASS<em class="g2s">OPEN</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Infill land near consumption centres cannot be recreated. The proof runs in reverse: acquisitions were completed at an estimated 20% DISCOUNT TO REPLACEMENT COST, so replacement cost exceeds market value. Plus 1.3bn sq ft across 20 countries, ~6,500 customers and a $240bn AUM strategic capital franchise.</p></div>
+<div class="rrow rp"><span class="rkey">G2</span><p class="rtext">The bear case was that logistics demand had peaked and the mark-to-market was exhausted. Falsified: RECORD 67 MILLION SQ FT LEASED, occupancy up 20bp to 95.5%, cash same-store NOI accelerating to 8.5% FROM 4.9%, guidance raised twice, US net absorption running ~220m sq ft and market rents up 70bp in the quarter.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Two independent owned mechanisms. First, the embedded mark-to-market: leases signed below market roll to current rents, a contractual position in Prologis's own book rather than a macro effect. Second, and stronger: $2.1BN OF DATA CENTRE DEVELOPMENT YEAR-TO-DATE already exceeding the $2bn full-year goal, with the POWER PIPELINE EXPANDED TO ROUGHLY 5.8 GW. Power interconnection is the binding constraint on data centre development, and 5.8 GW of it cannot be conjured by a competitor.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">22.4x Core FFO at roughly a 68% payout, conservative 4.7x debt/EBITDA, and development starts of $5.5-6.5bn substantially self-funded by $4.25-5.25bn of contributions and dispositions. Flags: Core FFO includes promote income (disclosed both ways, $1.63 with and $1.60 without), and net earnings guidance of $4.40-4.55 includes gains on real estate transactions, so GAAP EPS is not a clean operating read.</p></div></div>
+  <div class="meta test"><span class="mlab">Open test</span><p>Rent change on rollover, which is narrowing -- net effective fell to 36.9% from 53.4% and cash to 22.3% from 34.8%.</p></div><div class="meta note"><span class="mlab">Method note</span><p>Data flag: the export's 40.27x NTM P/E is GAAP-based and meaningless. Core FFO guidance of $6.22-6.30 gives 22.4x.</p></div><div class="meta so"><span class="mlab">Second order</span><p>CEO Letter: 'logistics, digital infrastructure and energy needs increasingly intersect' -- the same capital cycle appearing across a dozen holdings.</p></div>
+</article>
+<article class="card" data-action="EXIT" data-batch="8">
+  <header class="chead">
+    <div class="cid">
+      <h3>NNN REIT</h3>
+      <p class="ctick">NYSE:NNN &nbsp;·&nbsp; Real Assets & Utilities</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">0.9%</span>
+      <span class="badge bEXIT">EXIT</span>
+    </div>
+  </header>
+  <p class="cmetrics">13.3x AFFO · 5.24% yield · 15.4x EV/EBITDA</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">FAIL<em class="g2s">NO EDGE</em></span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">FAIL</span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">PASS</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">Narrowly. Best-in-class cost position: G&A at 5.8% of revenue and a 4.4% cash margin, plus four decades of direct sale-leaseback relationships. That protects the cost of doing deals, not pricing.</p></div>
+<div class="rrow rf"><span class="rkey">G2</span><p class="rtext">Everything is disclosed and the model is arithmetic: 3,774 properties, 10.1-year weighted average lease term, 7.3% acquisition cap rates, 4.2% cost of debt, guidance raised. The 2025 tenant credit question (Frisch's, At Home) has resolved -- occupancy recovered to 99.1% and bad debt ran at 2bp of ABR. No variant perception remains.</p></div>
+<div class="rrow rf"><span class="rkey">G3</span><p class="rtext">The flat-toll case the amendment was written to exclude, and the numbers are unambiguous. ABR grew 7.3% while AFFO per share grew 5.9% and full-year guidance implies only ~3.8%. The sources: acquisitions of $700-800m guided, funded partly by FORWARD SALE AGREEMENTS ON 5,999,528 SHARES at $45.91 plus 1,681,785 shares issued for $74.0m and an incremental $200m term loan draw; a ONE-TIME occupancy recovery to 99.1% from a 97.5% trough, now above the long-run average with nothing left; and lower-than-budgeted bad debt. Contractual escalators on single-tenant net leases at market rent are a mature toll with no re-leasing upside. And the spread is narrowing -- CAP RATES COMPRESSED TO 7.3% FROM 7.5% in one quarter against a 4.2% cost of debt.</p></div>
+<div class="rrow rp"><span class="rkey">G4</span><p class="rtext">5.24% yield at roughly a 69% AFFO payout is well covered, leverage moderate, 13.3x AFFO undemanding. Flags: GAAP NET EARNINGS FELL 2.6% WHILE CORE FFO ROSE 6.0%, on an $8.1m impairment (up from $4.5m) and lower disposition gains, so the reported-versus-FFO gap is widening; and the AFFO beat came from credit, not operations.</p></div></div>
+  <div class="meta note"><span class="mlab">Method note</span><p>Belongs in Cat 2 as a yield position, not Cat 1 -- exactly the amendment's prescription for a mature toll.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Acquisitions closed at a 17.9-year weighted average lease term, which locks in cash flow but also locks out any re-leasing upside for nearly two decades.</p></div>
+</article>
+<article class="card" data-action="TRIM" data-batch="8">
+  <header class="chead">
+    <div class="cid">
+      <h3>Exxon Mobil</h3>
+      <p class="ctick">NYSE:XOM &nbsp;·&nbsp; Real Assets & Utilities</p>
+    </div>
+    <div class="cnum">
+      <span class="cw">1.3%</span>
+      <span class="badge bTRIM">TRIM</span>
+    </div>
+  </header>
+  <p class="cmetrics">12.56x NTM · 7.32x EV/EBITDA · 2.72% yield</p>
+  <div class="train"><div class="gate gp">
+      <span class="gnum">G1</span>
+      <span class="glab">Franchise</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G2</span>
+      <span class="glab">Overhang</span>
+      <span class="gver">FAIL<em class="g2s">NO EDGE</em></span>
+    </div>
+<div class="gate gp">
+      <span class="gnum">G3</span>
+      <span class="glab">Owned tailwind</span>
+      <span class="gver">PASS</span>
+    </div>
+<div class="gate gf">
+      <span class="gnum">G4</span>
+      <span class="glab">Valuation / cash</span>
+      <span class="gver">FAIL</span>
+    </div></div>
+  <div class="reasons"><div class="rrow rp"><span class="rkey">G1</span><p class="rtext">The Stabroek block is a contractual position in one of the world's lowest-cost basins that no competitor can access, and Exxon is the world's SECOND-LARGEST REFINER AND THE LARGEST OUTSIDE CHINA, with a North American chemical feedstock advantage. $16.3bn of cumulative structural cost savings since 2019 is a demonstrated cost position.</p></div>
+<div class="rrow rf"><span class="rkey">G2</span><p class="rtext">ENERGY PRODUCTS EARNINGS QUADRUPLED TO $5.5BN FROM $1.4BN on refining margins management attributes to a war-driven supply shortfall, while Upstream LOST $1.1bn of earnings to the same conflict. The market read it correctly and the shares fell on the print. No variant perception is available.</p></div>
+<div class="rrow rp"><span class="rkey">G3</span><p class="rtext">Passes on the owned volume line. Stripped out as borrowed: crude realisations, refining margins, chemical margins. What remains and passes: GUYANA AT ROUGHLY 900,000 GROSS BPD with the fifth FPSO (Errea Wittu) on track for year-end startup, a Longtail FID and a potential ninth FPSO, plus RECORD PERMIAN PRODUCTION ABOVE 1.8 MILLION BOE/D. Conventional discovery rates have collapsed, so incremental global supply must come from a handful of low-cost basins, and Exxon holds contractual positions in two of them.</p></div>
+<div class="rrow rf"><span class="rkey">G4</span><p class="rtext">The multiple is struck on war-inflated earnings. Normalising Energy Products from $5.5bn toward $2.5bn a quarter -- still well above the $1.4bn prior-year level -- removes roughly $12BN OF ANNUALISED EARNINGS and takes the multiple from 12.6x to AROUND 16.5X, above Exxon's historical range. And the Q2 buyback was executed at an average $149.30, i.e. peak-margin earnings. The balance sheet is genuinely excellent (total debt $42.4bn, net debt/capital 10.7%, 43 consecutive dividend increases), but the price is not sane against normalised economics.</p></div></div>
+  <div class="meta note"><span class="mlab">Method note</span><p>The export's 'ExxonMobil Holdings Corporation' is not a data error -- the company completed its redomiciliation to Texas on 1 July 2026.</p></div><div class="meta so"><span class="mlab">Second order</span><p>Same configuration as Texas Instruments: no variant edge plus a peak-earnings price, on a thesis that passes Gates 1 and 3. Trim on sizing, not a hedge on a failure.</p></div>
+</article>
 </main>
+
+<section class="section">
+  <h2>Where the failures concentrate</h2>
+  <div class="finding">
+    <table class="cltab">
+      <thead><tr><th>Cluster</th><th>Names</th><th>Weight</th><th>Gate 3 fail</th><th>Exits</th><th>Exit wt</th></tr></thead>
+      <tbody><tr><td class="cn">Financials</td><td>9</td><td>16.3%</td>
+ <td class="">6/9</td>
+ <td>6</td><td class="hot">11.4%</td></tr>
+<tr><td class="cn">Semis & Platforms</td><td>6</td><td>16.3%</td>
+ <td class="">0/6</td>
+ <td>0</td><td class="">0%</td></tr>
+<tr><td class="cn">Software & IT Services</td><td>6</td><td>9.0%</td>
+ <td class="">5/6</td>
+ <td>5</td><td class="hot">6.9%</td></tr>
+<tr><td class="cn">Healthcare</td><td>8</td><td>17.6%</td>
+ <td class="">3/8</td>
+ <td>3</td><td class="">4.5%</td></tr>
+<tr><td class="cn">China / EM Consumer</td><td>4</td><td>3.5%</td>
+ <td class="">1/4</td>
+ <td>1</td><td class="">0.8%</td></tr>
+<tr><td class="cn">Japan Retail</td><td>2</td><td>3.6%</td>
+ <td class="hot">2/2</td>
+ <td>2</td><td class="">3.6%</td></tr>
+<tr><td class="cn">Japan Consumer</td><td>2</td><td>3.0%</td>
+ <td class="">1/2</td>
+ <td>1</td><td class="">0.8%</td></tr>
+<tr><td class="cn">Staples & Retail</td><td>5</td><td>8.7%</td>
+ <td class="hot">5/5</td>
+ <td>5</td><td class="hot">8.7%</td></tr>
+<tr><td class="cn">Industrials & Transport</td><td>8</td><td>12.9%</td>
+ <td class="">5/8</td>
+ <td>5</td><td class="hot">7.8%</td></tr>
+<tr><td class="cn">Real Assets & Utilities</td><td>5</td><td>8.3%</td>
+ <td class="">1/5</td>
+ <td>1</td><td class="">0.9%</td></tr></tbody>
+    </table>
+  </div>
+  <div class="finding">
+    <h3>Two clusters fail Gate 3 outright, and both are consumer</h3>
+    <p>Staples &amp; Retail (5 of 5) and Japan Retail (2 of 2) fail Gate 3 without exception. That is structurally unsurprising rather than a coincidence: mature consumer categories generate growth from store rollout, price, trade-down or acquisition, and the framework rejects every one of those as a secular mechanism by name.</p>
+    <p>Software &amp; IT Services runs 5 of 6, and the survivor is the one selling consumption rather than seats. Healthcare is the most resilient block at 2 of 8, because a patented molecule with a broadening label is an owned mechanism almost by construction &mdash; and the amendment now admits those properly instead of failing them for having a patent expiry.</p>
+  </div>
+</section>
 
 <section class="section">
   <h2>What the re-run changed</h2>
@@ -1300,6 +2437,18 @@ h1{font-size:clamp(30px,5vw,46px);line-height:1.04;font-weight:700;margin:0 0 12
     <h3>Roughly 18% of the fund sits in one exposure that appears on no sector map</h3>
     <p>Alphabet, Microsoft, Meta, Alibaba and Tencent are all currently converting operating cash into AI infrastructure. Five have suspended or collapsed their buybacks. Under the corrected Gate 4 this is not automatically a defect &mdash; the carve-out covers spending a passing Gate 3 has validated &mdash; but it concentrates the fund's distributable-cash profile on one capital cycle resolving on one timetable.</p>
     <p>Alibaba is the exception that proves the boundary: it fails Gate 4 not for building AI infrastructure but for funding a subsidised delivery war alongside it, which no gate has validated.</p>
+  </div>
+
+  <div class="finding">
+    <h3>One capital cycle reaches a dozen holdings across five sectors</h3>
+    <p>Alphabet, Microsoft and Meta will spend roughly $500&ndash;525bn of capex in calendar 2026. That single cycle then appears as a growth driver or a cost headwind in: Samsung and TSMC (fabrication and memory), Texas Instruments (data centre revenue doubling), Merck KGaA (Semiconductor Solutions +17% organic), DuPont (semiconductor ultrapure water), CDW (server growth and a $400m inventory build), Komatsu (North American construction demand), UPM (Finnish electricity consumption +5%), VINCI Energies, DHL Supply Chain (data centre logistics), and Prologis (a 5.8 GW power pipeline). Nintendo and Sony carry it as a memory-cost headwind.</p>
+    <p>The fund is long and short the same capital cycle across at least twelve positions, and it appears on no sector map.</p>
+  </div>
+
+  <div class="finding">
+    <h3>The Gate 3 amendment separates regulated assets rather than sweeping them</h3>
+    <p>Under a duration test, Aurizon and Enel would have received identical verdicts &mdash; both long-dated, concession-protected, revenue-regulated. Under the ownership test they diverge completely. Aurizon guides FY2027 non-growth capex of $590&ndash;660m against growth capex of $70&ndash;120m, with network volumes below regulatory assumptions but full allowable revenue still recognised: a mature toll on a flat base. Enel's RAB grew 10% to &euro;49.7bn and is guided to roughly &euro;58bn by 2028 from &euro;47bn: a growing base the incumbent alone can build.</p>
+    <p>The same blade separates VINCI (record &euro;76.8bn order book, new 97km/35-year concession) from NNN REIT (acquisition roll-up funded by equity issuance, occupancy recovery exhausted at 99.1%, cap rates compressing from 7.5% to 7.3%). Four regulated or contractual real assets, two passes, two failures, each for a stated reason.</p>
   </div>
 
   <div class="finding">
@@ -1334,7 +2483,7 @@ h1{font-size:clamp(30px,5vw,46px);line-height:1.04;font-weight:700;margin:0 0 12
 <p class="foot">
 Sources: company results releases, interim reports, earnings-call transcripts and SEC filings for all gate-critical figures.<br>
 Valuation metrics from CapitalIQ export, Q2 2026, with the exceptions flagged above.<br>
-Remaining 28 names &mdash; healthcare, staples &amp; retail, industrials &amp; transport, real assets &amp; utilities &mdash; to follow in a second report.
+Fund identity confirmed: MPGVX is benchmarked 100% to MSCI ACWI across 23 developed and 26 emerging markets. At roughly $278m of assets this is the retail vehicle, so relative weights are representative while absolute sizing should not be read as institutional book size.
 </p>
 
 </div>
